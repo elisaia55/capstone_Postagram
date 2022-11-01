@@ -12,6 +12,7 @@ const PostMenuModal = ({ post }) => {
                 className="post-options2"
                 onClick={ () => setPostId(post?.post.id) }
                 src="https://img.icons8.com/material-two-tone/24/000000/more.png"
+                alt="not loaded"
             />
             { postId === post?.post.id && (
                 <Modal onClose={ () => setPostId(0) }>

@@ -31,6 +31,11 @@ const LoginForm = () => {
   }
 
   return (
+    <div className='login-container'>
+      <p className='main-logo'>Postagram</p>
+    <div className='login-info-container'>
+    <p> TEST</p>
+    
     <form onSubmit={onLogin}>
       <div>
         {errors.map((error, ind) => (
@@ -41,7 +46,7 @@ const LoginForm = () => {
         <label htmlFor='email'>Email</label>
         <input
           name='email'
-          type='text'
+          type='email'
           placeholder='Email'
           value={email}
           onChange={updateEmail}
@@ -59,6 +64,8 @@ const LoginForm = () => {
         <button type='submit'>Login</button>
       </div>
     </form>
+    </div>
+    </div>
   );
 };
 

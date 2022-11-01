@@ -23,7 +23,7 @@ function User() {
   return (
     <ul>
       <li>
-        <strong>User Id</strong> {userId}
+        <strong>User Id</strong> {userId} 
       </li>
       <li>
         <strong>Username</strong> {user.username}

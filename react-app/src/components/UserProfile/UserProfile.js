@@ -7,3 +7,10 @@ import UserModal from "./UserProfileModal";
 import { Modal } from "../../context/Modal";
 import { OpenModal } from "../../context/OpenModal";
 import { userUpdate } from "../../store/user";
+
+
+const UserProfile = () => {
+return (
+    <></>
+)
+}
