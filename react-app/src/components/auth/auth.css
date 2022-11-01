@@ -1,0 +1,116 @@
+@font-face {
+  font-family: bil;
+  src: url("../../fonts/Billabong.ttf");
+}
+
+.signup-outer-container {
+    display: flex;
+    gap: 10px;
+    min-height: 100vh;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+.main-logo {
+font-weight: Bold;
+font-family: bil;
+font-size: 40px;
+display: flex;
+justify-content: center;
+margin-bottom: -6px;
+}
+
+.sign-up-greeting {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.sign-up-word {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 20px;
+  font-weight: 500;
+  color: #8e8e8e;;
+
+
+}
+
+  .top-signup {
+    width: 320px;
+    min-height: 560px;
+    background-color: #ffff;
+    border: 0.5px solid rgba(var(--b6a,219,219,219),1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+  }
+
+.signup-demo-btn {
+  width: 268px;
+  height: 32px;
+  background-color: #0095f6;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 5px 9px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+
+.signup-inputs {
+  background-color: #fafafa;
+  color: #262626;
+  border: 0.5px solid #dbdbdb;
+  align-self: center;
+  width: 268px;
+  height: 36px;
+  border-radius: 3px;
+  margin-bottom: 5px;
+  font-size: 12px;
+
+}
+
+.signup-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.signup-btn {
+  width: 268px;
+  height: 30px;
+  background-color: #0095f6;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 5px 9px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.signup-errors {
+  color: red;
+}

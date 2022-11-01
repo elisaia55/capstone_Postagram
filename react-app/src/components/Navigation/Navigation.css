@@ -1,0 +1,52 @@
+.outer-nav-container {
+    height: 65px;
+    width: 100%;
+    background-color: #ffffff;
+    border-bottom: 1px solid rgb(220, 220, 220);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    position: fixed;
+    z-index: 10;
+    top: -9px
+}
+
+.nav-msg-btn:hover {
+    cursor: pointer;
+}
+
+.mid-nav-container {
+    display: flex;
+    margin: auto;
+    width: 1000px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 12px;
+}
+
+.right-nav {
+    display: flex;
+    align-items: center !important;
+    gap: 20px;
+    background-color: #ffffff;
+    white-space: nowrap;
+    padding-left: 24px;
+    width: 250px;
+    font-stretch: 100%;
+    margin-top: 7px;
+
+}
+
+.nav-btns:hover {
+    cursor: pointer;
+}
+
+.dm-btn {
+    width: 28px;
+    height: 28px;
+}
+
+.dm-btn:hover {
+    cursor: pointer;
+}
