@@ -21,13 +21,14 @@ const getDetails = (posts) => ({
 
 export const likePost = (postId) => async (dispatch) => {
     const res = await fetch(`/api/likes/${postId}`,
-        {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-        });
+    {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+    });
     const data = await res.json();
+    console.log(data,"hit like think for likes --------->")
     dispatch(getFollowingPosts(data));
 }
 
@@ -35,6 +36,7 @@ export const likePost = (postId) => async (dispatch) => {
 export const findPosts = (userId) => async (dispatch) => {
     const res = await fetch(`/api/posts/${userId}`)
     const data = await res.json();
+    console.log(data, "------ HIT FIND POSTS THUNK ------")
     if (res.ok) {
         dispatch(getPosts(data, userId));
 

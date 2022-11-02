@@ -2,7 +2,7 @@ from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
 from app.models import db, Follow, User, follow
 
-follow_routes = Blueprint('follow', __name__)
+follow_routes = Blueprint('follows', __name__)
 
 
 @follow_routes.route('/<int:id>')

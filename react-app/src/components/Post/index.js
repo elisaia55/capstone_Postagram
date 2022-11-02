@@ -181,11 +181,11 @@ const Post = () => {
                                 following?.find((f) => f.id === post?.user?.id) !==
                                     undefined ? (
                                     <div className="pp-follow" onClick={ () => setNum(8) }>
-                                        •<span className="p-follow">Following</span>
+                                        •
                                     </div>
                                 ) : (
                                     <div className="pp-follow" onClick={ addFollow }>
-                                        •<span className="p-follow p-follow-me">Follow</span>
+                                        
                                     </div>
                                 )
                             ) : null }

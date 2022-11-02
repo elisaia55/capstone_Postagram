@@ -100,10 +100,9 @@ const Menu = ({ post }) => {
                 ) : (
                     <div
                         className="unfollow-post"
-                        onClick={ () => setPostId(0) }
-                        onMouseDown={ () => setNum(8) }
+                        
                     >
-                        <span className="menu-btns">Unfollow</span>
+                        
                     </div>
                 ) }
                 <div
