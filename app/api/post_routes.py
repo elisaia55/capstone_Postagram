@@ -99,6 +99,9 @@ def get_posts(id):
 
     feed = []
 
+    if posts == None:
+        return None
+
     for post in posts:
         likes = Like.query.filter_by(postId=post.id).all()
         for like in likes:

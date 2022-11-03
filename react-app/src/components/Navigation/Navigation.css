@@ -50,3 +50,20 @@
 .dm-btn:hover {
     cursor: pointer;
 }
+
+#navbar-profile-img {
+    display: flex;
+    height: 28px;
+    width: 28px;
+    
+}
+
+.search-container {
+    display:flex;
+}
+
+.dropdown-menu-container {
+    position: absolute;
+    top: 90px;
+}
+

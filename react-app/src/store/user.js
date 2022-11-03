@@ -1,10 +1,28 @@
 const UPDATE_USER = 'user/UPDATE_USER'
+const GET_USERS = 'users/GET_ALL_USERS'
+
 
 const updateUser = (user) => ({
     type: UPDATE_USER,
     payload: user,
 })
 
+const getUsers = (user) => ({
+    type: GET_USERS,
+    payload: user
+})
+
+
+export const getAllUsers = () => async (dispatch) => {
+    const res = await fetch(`api/users/getUsers`)
+    if (res.ok) {
+        const data = await res.json();
+        dispatch(getUsers(data))
+        return null;
+    } else {
+        return ["Something went wrong, try again"]
+    }
+}
 
 export const userUpdate = (id) => async (dispatch) => {
     const res = await fetch(`api/users/${id}`);
@@ -16,6 +34,8 @@ const initialState = { user: null }
 
 export default function userReducer(state = initialState, action) {
     switch (action.type) {
+        case GET_USERS:
+            return {...state, allUsers: action.payload}
         case UPDATE_USER:
             return { user: action.payload }
         default:

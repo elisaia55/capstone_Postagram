@@ -1,9 +1,12 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useHistory } from "react-router";
 import { NavLink } from "react-router-dom";
+import { useParams } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
 import { OpenModal } from "../../context/OpenModal";
 import NewPostModal from "../PostModal/PostModal";
+import ProfileDropDown from "./ProfileDropDown";
+
 import HomeFilled from '../../images/HomeSEL.png'
 import HomeEmpty from '../../images/HomeUN.png'
 
@@ -13,6 +16,8 @@ import MsgFilled from "../../images/msgFillednew.png";
 import ExploreFilled from '../../images/DiscoverSEL.png'
 import ExploreEmpty from '../../images/DiscoverUN.png'
 
+
+
 import NotifFilled from '../../images/NotifsSEL.png'
 import NotifEmpty from '../../images/NotifsUN.png'
 import './Navigation.css'
@@ -21,11 +26,24 @@ import './Navigation.css'
 const Navigation = () => {
     const dispatch = useDispatch();
     const history = useHistory();
+    const ref = useRef()
     const [input, setInput] = useState("");
+
+    const [dropDownMenu, setDropDownMenu] = useState(false)
+
     const { num } = OpenModal();
     const path = window.location.pathname;
 
     const user = useSelector((state) => state.session?.user);
+
+    useEffect(() => {
+        const outsideClick = (e) => {
+            if (dropDownMenu && ref.current && !ref.current.contains(e.target)) {
+                setDropDownMenu(false)
+            }
+        }
+        document.addEventListener("click", outsideClick);
+    }, [dropDownMenu])
 
     return (
         <div className="outer-nav-container">
@@ -33,6 +51,7 @@ const Navigation = () => {
                 <a className="main-logo" onClick={ () => history.push("/") }>
                     Postagram
                 </a>
+                
                 <div className="search-container">
                     {/* <input
                         className="search-bar"
@@ -49,39 +68,17 @@ const Navigation = () => {
                                 <img className="dm-btn" src={ HomeEmpty }></img>
                             </div>
                         ) }
-                        { path === "/messages" && num !== 1 ? (
-                            <div
-                                className="dm-btn"
-
-                                onClick={ () => history.push("/messages") }
-                            >
-                                <img className="dm-btn" src={ MsgFilled }></img>
-                            </div>
-                        ) : (
-                            <div
-                                className="dm-btn"
-                                onClick={ () => history.push("/messages") }
-                            >
-                                <img className="dm-btn" src={ MsgEmpty }></img>
-                            </div>
-                        ) }
+                      
+                        
                         <NewPostModal />
-                        { path === "explore" && num !== 1 ? (
-                            <div
-                                className="nav-msg-btn"
-                                onClick={ () => history.push("/explore") }
-                            >
-                                <img className="dm-btn" src={ ExploreFilled }></img>
-                            </div>
-                        ) : (
-                            <div
-                                className="nav-msg-btn"
-                                onClick={ () => history.push("/explore") }
-                            >
-                                <img className="dm-btn" src={ ExploreEmpty }></img>
-                            </div>
-                        ) }
-                        <p>NOTIFS BUTTON</p>
+                       
+                        <img
+                        className="dropdown-menu-profile"
+                        ></img>
+                    <div onClick={() => setDropDownMenu(!dropDownMenu)} ref={ref} className="nav-drop-img-container">
+                        <img src={user.image_url} id='navbar-profile-img' alt={`${user.username}'s Profile Picture`}/>
+                        {dropDownMenu && <ProfileDropDown user={user}/>}
+                    </div>
                     </div>
 
                 </div>
