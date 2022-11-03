@@ -49,8 +49,12 @@ const Post = () => {
     }, [postId, post]);
 
     useEffect(() => {
-        dispatch(findPosts(post?.user?.id))
-    }, [post])
+        dispatch(findPosts(post?.user?.id)).then(response => {
+            console.log(response);
+        }).catch(e => {
+            console.log(e);
+        })
+    }, [])
 
     useEffect(() => {
         const arr = new Array(post?.comments.length).fill(true);

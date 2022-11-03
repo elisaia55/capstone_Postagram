@@ -48,13 +48,13 @@ export const unfollow = (userId) => async (dispatch) => {
     }
 }
 
-export const findSuggestedUsers = () => async (dispatch) => {
-    const res = await fetch("/api/follows/suggestions");
-    if (res.ok) {
-        const data = await res.json();
-        dispatch(getSuggestedUsers(data));
-    }
-}
+// export const findSuggestedUsers = () => async (dispatch) => {
+//     const res = await fetch("/api/follows/suggestions");
+//     if (res.ok) {
+//         const data = await res.json();
+//         dispatch(getSuggestedUsers(data));
+//     }
+// }
 
 export const removeFollow = (id, userId) => async (dispatch) => {
     const res = fetch(`/api/follows/remove/${id}`, {

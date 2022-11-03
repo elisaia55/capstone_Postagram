@@ -36,10 +36,13 @@ export const likePost = (postId) => async (dispatch) => {
 export const findPosts = (userId) => async (dispatch) => {
     const res = await fetch(`/api/posts/${userId}`)
     const data = await res.json();
+    console.log(res,data, "HIT %%%%%%%%%%%%%%%%%%%%%%%%%")
     console.log(data, "------ HIT FIND POSTS THUNK ------")
     if (res.ok) {
         dispatch(getPosts(data, userId));
 
+    } else {
+        return null
     }
 };
 

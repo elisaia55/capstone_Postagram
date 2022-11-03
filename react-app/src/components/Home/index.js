@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { findFollowers, findSuggestedUsers, followUser } from "../../store/follow";
+import { findFollowers, followUser } from "../../store/follow";
 import { findPosts, getPostFollowing, postComment, likePost } from "../../store/post";
 import { useHistory } from "react-router-dom";
 import Picker from "emoji-picker-react"
@@ -57,7 +57,7 @@ const Home = () => {
         document.title = "Postagram";
         dispatch(findFollowers(user?.id))
         dispatch(findPosts(user?.id));
-        dispatch(findSuggestedUsers())
+        
     }, [])
 
     useEffect(() => {
