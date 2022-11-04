@@ -51,14 +51,14 @@ const Home = () => {
     };
 
 
-    // useEffect(() => {
-    //     async function fetchData() {
-    //       const response = await fetch('/api/users/');
-    //       const responseData = await response.json();
-    //       setUsers(responseData.users);
-    //     }
-    //     fetchData();
-    //   }, []);
+    useEffect(() => {
+        async function fetchData() {
+          const response = await fetch('/api/users/');
+          const responseData = await response.json();
+          setUsers(responseData.users);
+        }
+        fetchData();
+      }, []);
 
     useEffect(() => {
         updateInput(currInput);
@@ -67,14 +67,13 @@ const Home = () => {
 
     useEffect(() => {
         document.title = "Postagram";
-        // dispatch(findFollowers(user?.id))
         dispatch(findPosts(user?.id));
         
     }, [])
 
     useEffect(() => {
         dispatch(getPostFollowing());
-    }, []);
+    }, [user]);
 
     useEffect(() => {
         setInputs(new Array(followingPosts?.length).fill(""));
@@ -289,12 +288,12 @@ const Home = () => {
                                         className="post-comment-count"
                                         onClick={ () => history.push(`/posts/${post.post.id}`) }
                                     >
-                                        {post.comments?.length
+                                        { post.comments?.length > 1
                                             ? `View all ${post.comments.length} comments`
                                             : null }
                                     </div>
                                     <div className="post-comments">
-                                        { user && post.comments.length >= 0 &&
+                                        { post.comments.length > 0 &&
                                             post.comments.slice(0, 1).map((comment, i) => (
                                                 <div key={ comment + i } className="post-test">
                                                     <div
@@ -347,8 +346,8 @@ const Home = () => {
                                             </div>
                                         </div>
                                         <input
-                                            onKeyUp={ (e) =>
-                                                e.key === "Enter" && addComment(i, post?.post?.id)
+                                            onKeyPress={ (e) =>
+                                                e.key === "Enter" && addComment(i, post.post.id)
                                             }
                                             placeholder="Add a comment..."
                                             className="post-comment-input"
@@ -359,7 +358,7 @@ const Home = () => {
                                         />
                                         <button
                                             className="post-submit-comment"
-                                            onClick={ (e) => addComment(i, post?.post?.id) }
+                                            onClick={ (e) => addComment(i, post.post.id) }
                                             
 
                                         >
