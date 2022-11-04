@@ -14,6 +14,11 @@
     justify-content: center;
     margin-left: 30px;
     margin-top: 8px;
+    width: fit-content;
+}
+
+.menu-btns:hover {
+    background-color: rgba(229, 229, 229, 0.72);
 }
 
 .menu-btns2 {
@@ -24,7 +29,10 @@
 }
 
 .hide-menu {
-    width: 100%;
+    width: 750px;
+    position: relative;
+    left: 190px;
+    bottom: 15px;
 }
 
 .menu-btns5 {
@@ -46,7 +54,7 @@
     height: 30px;
     font-weight: 700;
     cursor: pointer;
-    border-bottom: 0.5px solid #dbdbdb;
+    
 }
 
 .edit-post {
@@ -55,7 +63,7 @@
     padding: 16px 16px;
     height: 30px;
     cursor: pointer;
-    border-bottom: 0.5px solid #dbdbdb;
+    
 }
 
 .goto-post-b {
@@ -64,7 +72,7 @@
     padding: 16px 16px;
     height: 30px;
     cursor: pointer;
-    border-bottom: 0.5px solid #dbdbdb;
+    
 }
 
 .goto-post {
@@ -73,6 +81,9 @@
     padding: 16px 16px;
     height: 25px;
     cursor: pointer;
+    position: relative;
+    bottom: 5px;
+    left: 0px;
     /* margin-left: 10px; */
 }
 
@@ -90,7 +101,7 @@
     align-items: center;
     justify-content: center;
     gap: 5px;
-    border-bottom: 0.5px solid #dbdbdb;
+    
 }
 
 .del-title {
@@ -103,12 +114,16 @@
     color: #8e8e8e;
 }
 
+.edit-it {
+    
+}
+
 .edit-it-top {
     width: 367px;
     display: flex;
     flex-direction: row;
     gap: 5px;
-    border-bottom: 0.5px solid #dbdbdb;
+    
     padding: 16px 16px;
 }
 
@@ -145,6 +160,16 @@
     height: 25px;
     font-weight: 700;
     cursor: pointer;
-    border-bottom: 0.5px solid #dbdbdb;
+    
 
+}
+
+.hide-options{
+    
+    display: flex;
+    flex-direction: column;
+    width: 750px;
+    position: relative;
+    bottom: 7px;
+    left: 23px;
 }

@@ -10,13 +10,22 @@ const NewPost = () => {
     const dispatch = useDispatch()
     const { num, setNum } = OpenModal();
     const [url, setUrl] = useState("");
+    const [picture, setPicture] = useState([])
     const [caption, setCaption] = useState("");
     const [imgUrl, setImgUrl] = useState("")
     const [errors, setErrors] = useState([]);
     const [image, setImage] = useState(true)
+    
+
     const path = window.location.pathname
 
     const user = useSelector((state) => state.session?.user);
+
+    
+    const newButton = () => {
+        document.getElementById('new-photo').click()
+    }
+
 
     useEffect(() => {
         setErrors([]);
@@ -77,17 +86,23 @@ const NewPost = () => {
                                 { postIcon }
                                 <div className="preview-new-video">Upload photos here</div>
                                 <label className="new-post-upload" forhtml="new-photo">
-                                    Select from Computer
+                                    <button
+                                    id="get-photo"
+                                    onClick={() => newButton()}
+                                    >Select from Computer</button>
                                     <input
+                                        
+                                        style={{display: 'none'}}
                                         id="new-photo"
                                         type="file"
                                         className="hidden2"
-                                        accept="image/*"
+                                        required
+                                        accept=".png, .jpg, .jpeg"
                                         onChange={ (e) => {
                                             setUrl(URL.createObjectURL(e.target.files[0]));
                                             setImgUrl(e.target.files[0]);
-                                        } }
-                                    />
+                                        } } 
+                                    /> 
                                 </label>
                             </div>
                         ) : (
@@ -111,7 +126,7 @@ const NewPost = () => {
                             placeholder="Write a caption..."
                             maxLength="2200"
                         />
-                        <div>EMOJIS?</div>
+                        <div></div>
                         <div className="character-count">{ caption?.length } / 2,200</div>
 
                     </div>

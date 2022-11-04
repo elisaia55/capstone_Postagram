@@ -7,6 +7,8 @@ import { signUp, login } from '../../store/session';
 import { OpenModal } from '../../context/OpenModal';
 import MainLogo from '../../images/POSTagram_logo.png'
 import "./auth.css"
+import GoogleLogo from '../../images/gg-play.png'
+import AppleLogo from '../../images/app-store.png'
 
 
 
@@ -72,6 +74,8 @@ const SignUpForm = () => {
 
   return (
     <div className='signup-outer-container'>
+      <div className='signup-inner-container'>
+
       <div className='top-signup'>
         <p className='main-logo'>Postagram</p>
         <div className='sign-up-greeting'>
@@ -82,70 +86,75 @@ const SignUpForm = () => {
         </button>
         <div className='break-or'>
           <div className='or-line-break'></div>
-          <div className='or-word'>OR</div>
-          <div className='or-line-bot-break'></div>
+          <div className='or-word'> OR </div>
+          <div className='or-line-break'></div>
         </div>
         <form className='signup-form-container' onSubmit={ onSignUp }>
           <div>
 
             <input
-              placeholder='Email'
+              placeholder=' Email'
               className='signup-inputs'
               type='text'
               name='email'
               onChange={ updateEmail }
               value={ email }
-              required={ true }
+              required
               autoComplete="off"
-            ></input>
+              ></input>
           </div>
           <div>
             <input
-              placeholder='Full Name'
+              placeholder=' Full Name'
               className='signup-inputs'
               type='text'
               name='name'
               onChange={ updateName }
               value={ name }
-              required={ true }
+              required
               autoComplete="off"
-            ></input>
+              ></input>
           </div>
           <div>
             <input
-              placeholder='Username'
+              placeholder=' Username'
               className='signup-inputs'
               type='text'
               name='username'
               onChange={ updateUsername }
               value={ username }
-              required={ true }
+              required
               autoComplete="off"
-            ></input>
+              ></input>
           </div>
 
           <input
-            placeholder="Password"
+            placeholder=" Password"
             className='signup-inputs'
             type="password"
             name="password"
             autoComplete="off"
             onChange={ updatePassword }
             value={ password }
-            required={ true }
-          ></input>
+            required
+            ></input>
           <input
-            placeholder="Repeat Password"
+            placeholder=" Repeat Password"
             autoComplete="off"
             className='signup-inputs'
             type="password"
             name="repeat_password"
             onChange={ updateRepeatPassword }
             value={ repeatPassword }
-            required="{ true }"
-          >
+            required
+            >
 
           </input>
+            <div className='sign-up-extra-container'>
+            <p className='sign-up-extra'>People who use our service may have uploaded your contact information to Postagram™. Learn More</p>
+<p className='sign-up-extra'>
+By signing up, you agree to our Terms , Privacy Policy and Cookies Policy .</p>
+          </div>
           <button
             type='submit'
             className='signup-btn'
@@ -156,7 +165,7 @@ const SignUpForm = () => {
               !repeatPassword.length ||
               !name.length
             }
-          >
+            >
             Sign Up
           </button>
 
@@ -165,11 +174,30 @@ const SignUpForm = () => {
 
           { errors.map((error, ind) => (
             <div key={ ind }>{ error }</div>
-          )) }
+            )) }
 
         </div>
       </div>
+      <div className='signup-login-container'>
+        <p className='account-text'>
+          
+          Have an account? 
+          </p>
+        <a id='signup-login-button' href='/login'>Log in</a>
+      </div>
+      <p className='get-app-text'>Get the app</p>
+    <div className='social-logos-container'>
+      <a href='https://apps.apple.com/app/instagram/id389801252?vt=lo' target='_blank'>
+
+      <img className='social-logos' src={GoogleLogo}></img>
+      </a>
+      <a href='https://play.google.com/store/apps/details?id=com.instagram.android&referrer=utm_source%3Dinstagramweb%26utm_campaign%3DsignupPage%26ig_mid%3D06C72F4A-D84C-4ECF-8C5D-844C98131E2D%26utm_content%3Dlo%26utm_medium%3Dbadge' target='_blank'>
+
+      <img className='social-logos' src={AppleLogo}></img>
+      </a>
+      </div>
     </div>
+            </div>
   );
 };
 

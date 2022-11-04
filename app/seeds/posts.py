@@ -9,10 +9,15 @@ def seed_posts():
                  description='Sleep Time x 4x NBA Chamption', createdAt=datetime.now())
     post3 = Post(userId=3, media_url='https://assets3.thrillist.com/v1/image/3098349/828x610/flatten;crop;webp=auto;jpeg_quality=60.jpg',
                  description='The best dinner anyone could ever ask for.', createdAt=datetime.now())
-
+    post4 = Post(userId=4, media_url='https://wallpaperaccess.com/full/2547042.jpg',
+                 description='All Glory to the most high!.', createdAt=datetime.now())
+    post5 = Post(userId=5, media_url='https://akns-images.eonline.com/eol_images/Entire_Site/2022214/rs_634x1024-220314144632-634-the_rock-fanny_pack-twitter-gj.jpg?fit=around%7C634:1024&output-quality=90&crop=634:1024;center,top',
+                 description='Hard being this good lookn.', createdAt=datetime.now())
     db.session.add(post1)
     db.session.add(post2)
     db.session.add(post3)
+    db.session.add(post4)
+    db.session.add(post5)
 
     db.session.commit()
 

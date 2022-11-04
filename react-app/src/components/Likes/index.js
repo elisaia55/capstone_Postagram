@@ -6,7 +6,7 @@ import { OpenModal } from "../../context/OpenModal";
 import { Modal } from "../../context/Modal";
 import Unfollow from "../UserProfile/Unfollow";
 import "./Likes.css";
-import { findFollowers, followUser } from "../../store/follow";
+// import { findFollowers, followUser } from "../../store/follow";
 
 const Likes = ({ users }) => {
     const history = useHistory();
@@ -16,13 +16,13 @@ const Likes = ({ users }) => {
     const main = useSelector((state) => state.session.user);
     const following = useSelector((state) => state.follow[main?.id]?.following);
 
-    useEffect(() => {
-        dispatch(findFollowers(main?.id));
-    }, [main]);
+    // useEffect(() => {
+    //     dispatch(findFollowers(main?.id));
+    // }, [main]);
 
-    const follow = (id) => {
-        dispatch(followUser(id)).then(() => dispatch(findFollowers(main?.id)));
-    };
+    // const follow = (id) => {
+    //     dispatch(followUser(id)).then(() => dispatch(findFollowers(main?.id)));
+    // };
 
     return (
         <div className="likes-main">
@@ -59,12 +59,12 @@ const Likes = ({ users }) => {
                             { user.id !== main.id ? (
                                 following.find((f) => f.id === user.id) === undefined ? (
                                     <>
-                                        <button
+                                        {/* <button
                                             className="likes-follow"
                                             onClick={ () => follow(user.id) }
                                         >
                                             Follow
-                                        </button>
+                                        </button> */}
                                     </>
                                 ) : (
                                     <>

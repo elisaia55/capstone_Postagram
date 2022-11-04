@@ -6,26 +6,34 @@
 .signup-outer-container {
     display: flex;
     gap: 10px;
-    min-height: 100vh;
+    height: 750px;
     width: 100%;
     flex-direction: column;
     align-items: center;
     justify-content: center;
   }
 
-.main-logo {
-font-weight: Bold;
+.main-logo, .main-logo-nav {
+font-weight:bold;
 font-family: bil;
-font-size: 40px;
+font-size: 60px;
 display: flex;
 justify-content: center;
-margin-bottom: -6px;
+margin-bottom: 20px;
+
+}
+
+.main-logo-nav:hover {
+  cursor: pointer;
 }
 
 .sign-up-greeting {
+  position: relative;
+  bottom: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 90%;
 
 }
 
@@ -36,7 +44,8 @@ margin-bottom: -6px;
   font-size: 18px;
   margin-bottom: 20px;
   font-weight: 500;
-  color: #8e8e8e;;
+  color: #8e8e8e;
+  line-height: 20px;
 
 
 }
@@ -69,6 +78,8 @@ margin-bottom: -6px;
   gap: 8px;
   margin-top: 10px;
   margin-bottom: 10px;
+  position: relative;
+  bottom: 34px;
 }
 
 
@@ -82,14 +93,19 @@ margin-bottom: -6px;
   border-radius: 3px;
   margin-bottom: 5px;
   font-size: 12px;
+  
 
 }
+
+
 
 .signup-form-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
+  gap: 1px;
+  position: relative;
+  bottom: 40px;
 }
 
 .signup-btn {
@@ -125,4 +141,99 @@ margin-bottom: -6px;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.break-or {
+  position: relative;
+  bottom: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 555px;
+    height: 20px;
+    margin: 10px 45px 10px;
+
+}
+
+.or-line-break {
+  width: 100px;
+  height: 1px;
+  border-bottom: 1px solid rgb(240, 221, 221);
+}
+
+
+
+.or-word {
+  color: #8e8e8e;
+  margin-right: 20px;
+  margin-left: 20px;
+  font-size: 12px;
+  font-weight: 450;
+}
+
+.sign-up-extra-container {
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.sign-up-extra {
+  font-size: 12px;
+  text-align: center;
+  color: #8e8e8e;
+}
+
+#signup-login-button {
+  font-size: 14px;
+  text-decoration: none;
+  color: #0095f6;
+  font-weight: 600;
+}
+
+.account-text {
+  position: relative;
+  font-size: 14px;
+  right: 5px;
+  font-weight:300;
+}
+
+.signup-login-container {
+  display: flex;
+  height: 70px;
+  width: 320px;
+  border:0.5px solid rgba(var(--b6a,219,219,219),1);
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  bottom: 15px;
+  margin-top: 20px;
+  
+}
+
+.signup-inner-container {
+  position: relative;
+  top: 180px;
+}
+
+.social-logos-container {
+  display: flex;
+  justify-content: space-around;
+
+}
+
+.get-app-text {
+  position: relative;
+  bottom: 10px;
+  font-weight: 400;
+  font-size: 14px;
+text-align: center;
+}
+.social-logos {
+  flex-basis: 112%;
+  position: relative;
+  bottom: 10px;
+  width: 140px;
+  height: 40px;
+  
 }

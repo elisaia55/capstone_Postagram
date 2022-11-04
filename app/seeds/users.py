@@ -9,11 +9,16 @@ def seed_users():
         username='Dylan<3Tarky', email='dylan@dylan.com', password='dylan', image_url='https://images.pistonheads.com/nimg/44864/Medium-9169-McLaren720S.jpg', description="Money Maker, Lover of Keyboards", name="Dylan Peate")
     Pat = User(
         username='PatHeeHaw', email='patrick@patrick.com', password='patrick', image_url='https://cdn.britannica.com/25/190725-050-040595B1/Movie-still-Training-Day-Denzel-Washington-2001.jpg', description="Cowboy by the day, Coder by night", name="Patrick Mcginn")
+    AD  = User(
+        username='AD99', email='ad99@google.com', password='ad99', image_url='https://cdn.profootballrumors.com/files/2022/06/USATSI_17692095.jpg', description="Best Defenisve Tackle To Play the Game", name="Aaron Donald")
+    Rock = User(
+        username='The Rock', email='Rock@gmail.com', password='therock', image_url='https://m.media-amazon.com/images/M/MV5BMTkyNDQ3NzAxM15BMl5BanBnXkFtZTgwODIwMTQ0NTE@._V1_UY1200_CR84,0,630,1200_AL_.jpg', description="CAN YOU SMELL WHAT THE ROCK IS COOKINNN?", name="Dwayne 'The Rock' Johnson")
 
     db.session.add(demo)
     db.session.add(Dylan)
     db.session.add(Pat)
-
+    db.session.add(AD)
+    db.session.add(Rock)
     db.session.commit()
 
 

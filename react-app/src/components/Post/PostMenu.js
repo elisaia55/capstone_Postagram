@@ -88,10 +88,10 @@ const PostMenu = ({ post }) => {
         <div className="options-modal">
             <div className="hide-options">
                 <div onClick={ gone } className="delete-post">
-                    Delete post
+                    Delete Post
                 </div>
                 <div className="edit-post" onClick={ edit }>
-                    Edit caption
+                    Edit Caption
                 </div>
                 <div className="goto-post" onClick={ () => setPostId(0) }>
                     Cancel

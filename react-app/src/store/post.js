@@ -5,7 +5,8 @@ const GET_ONE_POST = 'post/GET_ONE_POST'
 const getPosts = (posts, userId) => ({
     type: GET_POSTS,
     payload: posts,
-    userId,
+    userId
+    
 })
 
 const getFollowingPosts = (posts) => ({
@@ -28,30 +29,42 @@ export const likePost = (postId) => async (dispatch) => {
         },
     });
     const data = await res.json();
-    console.log(data,"hit like think for likes --------->")
+   
     dispatch(getFollowingPosts(data));
 }
 
 
 export const findPosts = (userId) => async (dispatch) => {
-    const res = await fetch(`/api/posts/${userId}`)
-    const data = await res.json();
-    console.log(res,data, "HIT %%%%%%%%%%%%%%%%%%%%%%%%%")
-    console.log(data, "------ HIT FIND POSTS THUNK ------")
-    if (res.ok) {
-        dispatch(getPosts(data, userId));
+    try {
+        const res = await fetch(`/api/posts/${userId}`)
+        if (res.ok) {
+            const data = await res.json();
+            dispatch(getPosts(data));
+            console.log(data, "------------- FIND POSTS THUNK")
+            
+            
+        } else if (res.status < 500) {
+            const data = await res.json();
+            if (data.errors) {
+                return data.errors;
+            }
+        } else {
+            return ["Something went wrong"]
+        }
 
-    } else {
-        return null
+    } catch (error) {
+        console.error(error);
     }
+   
+
 };
 
 export const postDetails = (postId) => async (dispatch) => {
     const res = await fetch(`/api/posts/id/${postId}`);
     const data = await res.json();
-    console.log(res, "-------- HIT UNIQUE POSTS THUNK ----------")
+    
     if (res.ok) {
-        console.log(data, "--------2 HIT UNIQUE POSTS THUNK ----------")
+        
         dispatch(getDetails(data));
     }
 }
@@ -119,23 +132,32 @@ export const newPost = (obj) => async (dispatch) => {
 
 
 export const getPostFollowing = () => async (dispatch) => {
-    const res = await fetch(`/api/posts/following`);
-    const data = await res.json();
-    if (res.ok) {
-        dispatch(getFollowingPosts(data));
+    try {
+        const res = await fetch(`/api/posts/following`);
+        const data = await res.json();
+        if (res.ok) {
+            dispatch(getFollowingPosts(data));
+        }
+
+    } catch (error) {
+        console.error(error)
     }
 };
 
 const initialState = {};
 
 export default function postsReducer(state = initialState, action) {
+    let newState;
     switch (action.type) {
         case GET_POSTS:
-            return { ...state, [action.userId]: action.payload };
+            newState = { ...state, ...action.payload };
+            return newState
         case GET_FOLLOWING_POST:
-            return { ...state, following: action.payload.following }
+            newState = { ...state, following: action.payload.following }
+            return newState
         case GET_ONE_POST:
-            return { ...state, ...action.payload }
+            newState = { ...state, ...action.payload }
+            return newState;
         default:
             return state;
     }

@@ -1,5 +1,6 @@
 const UPDATE_USER = 'user/UPDATE_USER'
 const GET_USERS = 'users/GET_ALL_USERS'
+const LOAD_SINGLE_USER = 'users/LOAD_SINGLE_USER'
 
 
 const updateUser = (user) => ({
@@ -12,6 +13,17 @@ const getUsers = (user) => ({
     payload: user
 })
 
+const GetUniqueUser = (user) => ({
+    type: LOAD_SINGLE_USER,
+    payload: user
+})
+
+
+
+// const findUser = (username) => { async (dispatch) => {
+//     const res = await fetch(`/api/users/get/${username}`)
+// }
+// }
 
 export const getAllUsers = () => async (dispatch) => {
     const res = await fetch(`api/users/getUsers`)

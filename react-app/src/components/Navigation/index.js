@@ -48,7 +48,7 @@ const Navigation = () => {
     return (
         <div className="outer-nav-container">
             <div className="mid-nav-container">
-                <a className="main-logo" onClick={ () => history.push("/") }>
+                <a className="main-logo-nav" onClick={ () => history.push("/") }>
                     Postagram
                 </a>
                 

@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { useParams, useHistory } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
-import { findFollowers, followUser } from "../../store/follow";
+// import { findFollowers, followUser } from "../../store/follow";
 import { getPostFollowing, postDetails, likePost, postComment, findPosts } from "../../store/post";
 import { icon1, icon2, icon3, icon4 } from "./svgIcons"
 import { OpenModal } from "../../context/OpenModal";
@@ -32,13 +32,13 @@ const Post = () => {
     const followingFeed = useSelector((state) => state.post.following);
 
 
-    const [hidden, setHidden] = useState(new Array(post?.comments?.length).fill(true))
+    const [hidden, setHidden] = useState(new Array(post?.comments?.length).fill(false))
 
 
     useEffect(() => {
 
         dispatch(postDetails(+postId));
-        dispatch(findFollowers(user?.id));
+        // dispatch(findFollowers(user?.id));
 
     }, [postId, user, followingFeed])
 
@@ -49,12 +49,8 @@ const Post = () => {
     }, [postId, post]);
 
     useEffect(() => {
-        dispatch(findPosts(post?.user?.id)).then(response => {
-            console.log(response);
-        }).catch(e => {
-            console.log(e);
-        })
-    }, [])
+        dispatch(findPosts(post?.user?.id))
+    }, [post])
 
     useEffect(() => {
         const arr = new Array(post?.comments.length).fill(true);
@@ -72,21 +68,20 @@ const Post = () => {
         setInput(copy);
     };
 
-    const addFollow = () => {
-        dispatch(followUser(post?.user.id)).then(() => dispatch(getPostFollowing(user?.id)))
-    };
+    // const addFollow = () => {
+    //     dispatch(followUser(post?.user.id)).then(() => dispatch(getPostFollowing(user?.id)))
+    // };
 
-    const addLike = (id) => {
-        dispatch(likePost(id)).then(() => dispatch(getPostFollowing(user?.id)));
-    };
+    // const addLike = (id) => {
+    //     dispatch(likePost(id)).then(() => dispatch(getPostFollowing(user?.id)));
+    // };
 
     // heart animation gif?? for likes const addLikeAnimation () => {}
 
 
     const showEmoji = () => {
-        dispatch(followUser(post?.user.id)).then(() =>
-            dispatch(getPostFollowing(user?.id))
-        );
+        
+            dispatch(getPostFollowing(user?.id));
     }
 
     const newComment = (postId) => {
@@ -155,7 +150,7 @@ const Post = () => {
                 <div className="p-card">
                     <img
                         className="pp-img-load"
-                        src=""
+                        src={loadPost}
                     />
                     <img
                         className="pp-img hidden"
@@ -180,18 +175,18 @@ const Post = () => {
                             >
                                 { post?.user?.username }
                             </div>
-                            { post?.user?.id !== user?.id ? (
-                                following?.find((f) => f.id === post?.user?.id) !==
+                            {/* { post?.user?.id !== user?.id ? (
+                                following?.find((f) => f.id === post?.user?.id) ===
                                     undefined ? (
                                     <div className="pp-follow" onClick={ () => setNum(8) }>
-                                        •<span className="p-follow">Following</span>
+                                        <span className="p-follow">Following</span>
                                     </div>
                                 ) : (
                                     <div className="pp-follow" onClick={ addFollow }>
-                                        •<span className="p-follow p-follow-me">Follow</span>
+                                        <span className="p-follow p-follow-me"></span>
                                     </div>
                                 )
-                            ) : null }
+                            ) : null } */}
                             { post?.user?.id === user?.id ? (
                                 <PostMenuModal post={ post } />
                             ) : null }
@@ -276,11 +271,11 @@ const Post = () => {
                         <div className="post-icons-2">
                             { post?.likes?.length > 0 &&
                                 post?.likes?.find((p) => p.id === user.id) !== undefined ? (
-                                <div className="post-icon" onClick={ () => addLike(post.post.id) }>
+                                <div className="post-icon">
                                     { icon2 }
                                 </div>
                             ) : (
-                                <div className="post-icon" onClick={ () => addLike(post.post.id) }>
+                                <div className="post-icon">
                                     { icon1 }
                                 </div>
                             ) }
@@ -317,7 +312,7 @@ const Post = () => {
                         ) : (
                             <div className="pp-nolikes">
                                 Be the first to{ " " }
-                                <span className="pp-like-me" onClick={ () => addLike(post.post.id) }>
+                                <span className="pp-like-me">
                                     like this
                                 </span>
                             </div>

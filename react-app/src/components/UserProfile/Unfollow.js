@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { OpenModal } from "../../context/OpenModal";
-import { unfollow, findFollowers } from "../../store/follow";
+// import { unfollow, findFollowers } from "../../store/follow";
 import { getPostFollowing } from "../../store/post";
 
 const Unfollow = ({ user }) => {
@@ -9,9 +9,9 @@ const Unfollow = ({ user }) => {
     const main = useSelector((state) => state.session.user);
 
     const remove = () => {
-        dispatch(unfollow(user?.id))
-            .then(() => dispatch(getPostFollowing(main?.id)))
-            .then(() => dispatch(findFollowers(main?.id)));
+        // dispatch(unfollow(user?.id))
+            // .then(() => dispatch(getPostFollowing(main?.id)))
+            // .then(() => dispatch(findFollowers(main?.id)));
         setNum(0);
         setPostId(0);
         setUnfollow(0);

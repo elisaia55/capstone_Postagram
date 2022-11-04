@@ -73,9 +73,16 @@ def sign_up():
         db.session.add(user)
         db.session.commit()
 
-        follow = Follow(followerId=user.id, followingId=2)
+        follow = Follow(followerId=user.id, followingId=4)
+        follow2 = Follow(followerId=user.id, followingId=3)
+        follow3 = Follow(followerId=user.id, followingId=2)
+        follow4 = Follow(followerId=user.id, followingId=5)
 
         db.session.add(follow)
+        db.session.add(follow2)
+        db.session.add(follow3)
+        db.session.add(follow4)
+
         db.session.commit()
 
         login_user(user)

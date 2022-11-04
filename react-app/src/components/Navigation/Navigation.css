@@ -28,13 +28,14 @@
 .right-nav {
     display: flex;
     align-items: center !important;
-    gap: 20px;
-    background-color: #ffffff;
-    white-space: nowrap;
-    padding-left: 24px;
+    gap: 10px;
+    background-color: transparent;
     width: 250px;
-    font-stretch: 100%;
-    margin-top: 7px;
+    /* font-stretch: 100%; */
+    position: relative;
+    bottom: 5px;
+    right: 75px;
+    
 
 }
 
@@ -55,7 +56,16 @@
     display: flex;
     height: 28px;
     width: 28px;
+    position: relative;
+    right: 6px;
+    bottom: 2.5px;
     
+}
+
+#navbar-profile-img:hover {
+    cursor: pointer;
+    border: 2px black solid;
+    border-radius: 50%;
 }
 
 .search-container {
@@ -63,7 +73,113 @@
 }
 
 .dropdown-menu-container {
+    border-radius: 8px;
+    height: 140px;
+    width: auto;
+    background-color: #ffffff;
+    display: flex;
     position: absolute;
-    top: 90px;
+    flex-direction: column;
+    top: 40px;
+    border: 2px rgb(213, 213, 213) solid;
+    right: -44px;
+}
+
+.profile-dropdown-container {
+    position: relative;
+    left: 8px;
+    top: 14px;
+    width: 100%;
+    height: 30px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+
+}
+
+.about-us-container {
+    height: 30px;
+    width: 220px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.dropdown-about-ptag {
+    font-size: 14px;
+    font-weight: 500;
+    position: relative;
+    left: 5px;
+}
+
+.dropdown-about-ptag:hover {
+    cursor: pointer;
+    color: rgb(9, 255, 0);
+    
+}
+
+.dropdown-a-tags {
+    
+    text-decoration: none;
+    color: black;
+}
+
+.dropdown-logout {
+    height: 30px;
+    width: 100%;
+    position: relative;
+    top: 24px;
+    border: none;
+}
+
+.about-inner-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    top: 18px;
+    left: 8px;
+    
+}
+
+.logout-btn-container {
+    height: 20px;
+    border-top: 1px black solid;
+
+}
+
+.logout-btn {
+    border-top: 1px black solid;
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+    top:12px;
+    height: 30px;
+    width: 100%;
+    border: none;
+    background-color: transparent;
+    align-items: center;
+    left: 20px;
+    font-size: 14px;
+}
+
+.logout-btn:hover {
+    cursor: pointer;
+    color: red;
+    
+}
+
+.dropdown-profile-ptag {
+    font-size: 14px;
+    font-weight: 500;
+    position: relative;
+    left: 6px;
+}
+
+.dropdown-profile-ptag:hover {
+    cursor: pointer;
+    color: #0095f6;
+    
 }
 

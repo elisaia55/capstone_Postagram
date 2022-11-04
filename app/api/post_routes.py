@@ -1,4 +1,3 @@
-
 from flask import Blueprint, Config, jsonify, request
 from flask_login import login_required, current_user
 from app.models import db, Post, Follow, Comment, User, Like
@@ -99,22 +98,13 @@ def get_posts(id):
 
     feed = []
 
-    if posts == None:
-        return None
-
     for post in posts:
-        likes = Like.query.filter_by(postId=post.id).all()
-        for like in likes:
-            user_d = User.query.filter_by(postId=post.id).all()
-            post_likes.append(user_d.to_dict())
-
         comments = Comment.query.filter_by(postId=post.id).all()
         for comment in comments:
             user_e = User.query.filter_by(id=comment.userId).first()
             post_comment.append(user_e.to_dict())
 
-        feed.append({'post': post.to_dict(), 'likes': post_likes,
-                    'comments': post_comment})
+        feed.append({'post': post.to_dict(),'comments': post_comment})
         post_likes = []
         post_comment = []
     return {'posts': [item for item in feed]}
@@ -164,3 +154,11 @@ def edit_post(postId):
     db.session.commit()
 
     return posts_following()
+
+@post_routes.route('/<int:userId>')
+@login_required
+def getAllUsersPosts():
+    all_posts = Post.query.order_by(Post.createdAt.desc()).all();
+    all_posts = list(all_posts);
+    newest_post = [post.to_dict() for post in all_posts]
+    return jsonify(newest_post)

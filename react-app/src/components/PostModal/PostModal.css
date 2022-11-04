@@ -16,19 +16,20 @@
 }
 
 .new-post-container {
-height: 80vh;
+height: 50vh;
 width: 55vw;
 background-color: white !important;
 border-radius: 10px;
 display: flex;
 flex-direction: column;
+
 }
 
 .new-post-top {
     display: flex;
     flex-direction: row;
     align-items: center;
-    width: 100%;
+    width: 103.5%;
     height: 40px;
     border-bottom: 0.5px solid #dbdbdb;
 }
@@ -68,6 +69,8 @@ flex-direction: column;
 }
 
 .image-preview {
+    position: relative;
+    top: 20px;
     max-width: 100%;
     max-width: 100%;
     object-fit: cover;
@@ -77,21 +80,25 @@ flex-direction: column;
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 100%;
+    width: 500px;
+    
 }
 
 .right-mid-container {
-    width: 20vw;
-    display: flex;
-    flex-direction: column;
+    width: 25vw;
+    position: relative;
+    left: 20px;
+    
 }
 
 .user-new-post {
     height: 60px;
     padding: 0 16px;
     display: flex;
-    width: 100%;
+    width: 290px;
     align-items: center;
-    width: calc(55vw - (55vw * 0.25));
+    
 }
 
 .new-post-caption {
@@ -109,17 +116,17 @@ flex-direction: column;
 }
 
 .new-url-post {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: relative;
+    top: 7px;
+    left: 26px;
     height: 44px;
     outline: none;
     border: none;
-    border-bottom: 1px solid #dbdbdb;
+    
     font-size: 15px;
     text-align: center;
     cursor: pointer;
-    color:#ed4956;
+    color:#ee0b1e;
     font-weight: 500;
 
 }
@@ -128,4 +135,34 @@ flex-direction: column;
     padding: 20px 15px;
     color:#ed4956;
     font-size: 16px;
+}
+
+.preview-new-post {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.new-post-upload {
+    display: flex;
+    justify-content: center;
+}
+
+#get-photo {
+    height:24px ;
+    border-radius: 5px;
+    background-color: #0095f6;
+    border: transparent;
+    color: white;
+}
+
+#get-photo:hover {
+    cursor: pointer;
+}
+
+.character-count {
+    position: relative;
+    left: 200px;
+    bottom: 20px;
+    color: rgb(199, 199, 199)
 }

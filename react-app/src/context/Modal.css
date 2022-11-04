@@ -1,9 +1,10 @@
 #modal {
-    position: fixed;
+    overflow: auto !important;
+    position: absolute;
     top: 0;
     left: 0;
     bottom: 0;
-    right: 0;
+    right: 200px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,8 +21,10 @@
 }
 
 #modal-content {
-    width: 400px;
-    position: absolute;
+    width: 750px;
+    position: fixed;
     background-color: white;
     border-radius: 10px;
+    display: flex;
+    
 }

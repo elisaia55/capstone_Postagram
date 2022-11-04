@@ -12,7 +12,7 @@ const Menu = ({ post }) => {
     const history = useHistory()
     const dispatch = useDispatch()
     const [open, setOpen] = useState(0);
-    const emoji = useRef(null);
+    const emoji = useRef([]);
     const { setPostId, num, setNum } = OpenModal();
 
     const user = useSelector((state) => state.session.user)
@@ -56,7 +56,7 @@ const Menu = ({ post }) => {
 
     const destroy = () => {
         dispatch(deletePost(post.post.id))
-        setPostId(0);
+        
     };
 
     const edit = () => {
@@ -98,12 +98,9 @@ const Menu = ({ post }) => {
                         </div>
                     </>
                 ) : (
-                    <div
-                        className="unfollow-post"
+                    <>
                         
-                    >
-                        
-                    </div>
+                    </>
                 ) }
                 <div
                     onClick={ () => {
@@ -112,7 +109,7 @@ const Menu = ({ post }) => {
                     } }
                     className="goto-post-b"
                 >
-                    <span className="menu-btns">Go to post</span>
+                    
                 </div>
                 <div className="goto-post" onClick={ () => setPostId(0) }>
                     <span className="menu-btns">Cancel</span>
