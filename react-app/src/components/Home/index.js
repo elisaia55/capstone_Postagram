@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from "react";
-import React, { Component } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 // import { findFollowers, followUser } from "../../store/follow";
 import { findPosts, getPostFollowing, postComment, likePost, deleteLike } from "../../store/post";
@@ -15,6 +15,7 @@ import Stories from "react-insta-stories"
 import Unfollow from "../UserProfile/Unfollow";
 import { suggestedUsers } from "./SuggestionsHelper";
 import "./Home.css"
+import { getAllUsers } from "../../store/user";
 
 const Home = () => {
     const history = useHistory();
@@ -28,9 +29,12 @@ const Home = () => {
     const [count, setCount] = useState(0);
     const [src, setSrc] = useState("");
     const [unfollowed, setUnfollowed] = useState();
+    const usersSuggested = useSelector((state) => state.user.allUsers)
     const user = useSelector((state) => state.session.user);
     const followingPosts = useSelector((state) => state.post.following);
     const [isClicked, setIsClicked] = useState(false)
+
+    
     
     // const suggestions = useSelector((state) => state.follow.users);
     // const following = useSelector((state) => state.follow[user?.id]?.following);
@@ -43,8 +47,7 @@ const Home = () => {
     const date = new Date();
 
 
-
-
+    
 
     const updateInput = (index) => {
         let arr = [...inputs];
@@ -52,6 +55,19 @@ const Home = () => {
         setInputs(arr);
     };
 
+    // const userTest = (user) => {
+    //     dispatch(getAllUsers())
+    // }
+    useEffect(() => {
+        let ignore = false;
+        
+        if (!ignore)  dispatch(getAllUsers())
+        return () => { ignore = true; }
+        },[]);
+
+    // useEffect(() => {
+    //     dispatch(getAllUsers)
+    // }, [dispatch])
 
     // useEffect(() => {
     //     async function fetchData() {
@@ -383,6 +399,7 @@ const Home = () => {
                     <div className="home-right">
                         <div className="home-right-card">
                             <div className="h-right-user">
+                                
                                 <img
                                     className="hr-user-img"
                                     onClick={ () => history.push(`/users/${user.id}`) }
@@ -405,14 +422,10 @@ const Home = () => {
                                 <div className="suggestions-title">Suggestions For You</div>
                                 
                                 <div className="suggestions-list">
-                                    {/* { suggestions?.length > 0 ? (
-                                        suggestions?.slice(0, 5).map((s, i) => (
+                                    {  usersSuggested?.length > 0 ? (
+                                        usersSuggested?.slice(1, 5).map((s, i) => (
                                             <>
-                                                { unfollow === s.id && (
-                                                    <Modal onClose={ () => setUnfollow(0) }>
-                                                        <Unfollow user={ unfollowed } />
-                                                    </Modal>
-                                                ) }
+                                               
                                                 <div key={ s + i } className="suggestion-card">
                                                     <img
                                                         onClick={ () => history.push(`/users/${s.id}`) }
@@ -428,25 +441,7 @@ const Home = () => {
                                                         </div>
                                                         <div className="s-name">{ s.name }</div>
                                                     </div>
-                                                    { following?.find((u) => u.id === s.id) ===
-                                                        undefined ? (
-                                                        <div
-                                                            className="s-follow"
-                                                            
-                                                        >
-                                                            Follow
-                                                        </div>
-                                                    ) : (
-                                                        <div
-                                                            className="s-unfollow"
-                                                            onClick={ () => {
-                                                                setUnfollowed(s);
-                                                                setUnfollow(s.id);
-                                                            } }
-                                                        >
-                                                            Following
-                                                        </div>
-                                                    ) }
+                                                   
                                                 </div>
                                             </>
                                         ))
@@ -454,7 +449,7 @@ const Home = () => {
                                         <div className="home-no-suggestions">
                                             No available suggestions
                                         </div>
-                                    ) } */}
+                                    ) }
                                 </div>
                             </div>
 

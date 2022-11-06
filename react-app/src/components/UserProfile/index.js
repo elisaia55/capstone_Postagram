@@ -37,7 +37,7 @@ function UserProfile() {
 
   }
 
-  let newCounter;
+
 
   // const postCount = () => {
   //   if (finishedLoading) {

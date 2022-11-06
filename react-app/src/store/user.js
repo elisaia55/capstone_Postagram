@@ -26,7 +26,7 @@ const GetUniqueUser = (user) => ({
 // }
 
 export const getAllUsers = () => async (dispatch) => {
-    const res = await fetch(`api/users/getUsers`)
+    const res = await fetch(`/api/users/suggestedUsers`)
     if (res.ok) {
         const data = await res.json();
         dispatch(getUsers(data))
@@ -38,6 +38,7 @@ export const getAllUsers = () => async (dispatch) => {
 
 export const userUpdate = (id) => async (dispatch) => {
     const res = await fetch(`api/users/${id}`);
+    console.log(res, "USERS HIT HERE {}{}{}{}{}{}{}{}{}{}[][}[}[}[}[}[][][]{]{][]")
     const data = await res.json()
     dispatch(updateUser(data));
 }

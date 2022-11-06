@@ -49,22 +49,27 @@ const SignUpForm = () => {
   }
 
   const updateUsername = (e) => {
+    setErrors([])
     setUsername(e.target.value);
   };
 
   const updateEmail = (e) => {
+    setErrors([])
     setEmail(e.target.value);
   };
 
   const updatePassword = (e) => {
+    setErrors([])
     setPassword(e.target.value);
   };
 
   const updateRepeatPassword = (e) => {
+    setErrors([])
     setRepeatPassword(e.target.value);
   };
 
   const updateName = (e) => {
+    setErrors([])
     setName(e.target.value)
   };
 
