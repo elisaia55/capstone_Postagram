@@ -7,7 +7,7 @@ class Comment(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     userId = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     postId = db.Column(db.Integer, db.ForeignKey('posts.id'), nullable=False)
-    description = db.Column(db.String(2200), nullable=False)
+    description = db.Column(db.String(200), nullable=False)
     createdAt = db.Column(db.DateTime, nullable=False)
 
     user = db.relationship(

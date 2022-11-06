@@ -99,12 +99,18 @@ def get_posts(id):
     feed = []
 
     for post in posts:
+        # likes = Like.query.filter_by(postId=post.id).all()
+        # for like in likes:
+        #     user_d = User.query.filter_by(postId=post.id).all()
+        #     post_likes.append(user_d.to_dict())
+
         comments = Comment.query.filter_by(postId=post.id).all()
         for comment in comments:
             user_e = User.query.filter_by(id=comment.userId).first()
             post_comment.append(user_e.to_dict())
 
-        feed.append({'post': post.to_dict(),'comments': post_comment})
+        feed.append({'post': post.to_dict(), 'likes': post_likes,
+                    'comments': post_comment})
         post_likes = []
         post_comment = []
     return {'posts': [item for item in feed]}
@@ -162,3 +168,28 @@ def getAllUsersPosts():
     all_posts = list(all_posts);
     newest_post = [post.to_dict() for post in all_posts]
     return jsonify(newest_post)
+
+@post_routes.route('/likes/<int:postId>', methods=["POST"])
+@login_required
+def add_like(postId):
+    # post = Post.query.get(postId)
+    # new_like = request.json
+
+    add_new_like = Like(userId=current_user.id, postId=postId)
+    print(add_new_like,"ADD LIKE ROUTE HERE ___-_-_---__-__-__-__--")
+
+    db.session.add(add_new_like)
+    db.session.commit()
+
+    return posts_following()
+    
+@post_routes.route('likes/<int:postId>', methods=["DELETE"])
+@login_required
+def delete_like(postId):
+    
+    like = Like.query.get(postId)
+
+    db.session.delete(like)
+    db.session.commit()
+
+    return posts_following()

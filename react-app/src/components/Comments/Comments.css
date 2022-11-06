@@ -6,7 +6,7 @@
 }
 
 .delete-conf-settings {
-    width: 400px;
+    width: 100px;
     background-color: white;
     border-radius: 12px;
     font-size: 14px;
@@ -14,4 +14,8 @@
     flex-direction: column;
     align-items: center;
     animation: popup 400ms forwards;
+}
+
+.del-conf-top {
+    width: 100px;
 }

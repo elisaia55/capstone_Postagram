@@ -39,8 +39,9 @@ const NewPost = () => {
             postErr.push("Please provide a valid image");
             return setErrors(postErr)
         }
-        if (caption.length > 2200) {
-            postErr.push("Caption cannot be longer than 2200 characters")
+        if (caption.length > 200) {
+            postErr.push("Caption cannot be longer than 200 characters")
+            return setErrors(postErr)
         }
         if (image !== true) {
             postErr.push("Please prove a valid image file")
@@ -54,12 +55,12 @@ const NewPost = () => {
         };
         dispatch(newPost(obj))
             .then(() => dispatch(getPostFollowing()))
-            .then(() => {
-                if (path === `/users/${user?.id}`) {
-                    dispatch(findPosts(user?.id));
-                    dispatch(userUpdate(user?.id));
-                }
-            });
+            // .then(() => {
+            //     if (path === `/users/${user?.id}`) {
+            //         dispatch(findPosts(user?.id));
+            //         dispatch(userUpdate(user?.id));
+            //     }
+            // });
 
         setNum(0);
 
@@ -75,9 +76,12 @@ const NewPost = () => {
             <div className="new-post-container">
                 <div className="new-post-top">
                     <p className="new-post-title">Create New Post</p>
+                    {caption.length <= 200 &&
                     <div className="post-submit-btn" onClick={ handleSubmit }>
                         Share
                     </div>
+                    
+                    }
                 </div>
                 <div className="newPost-bot-container">
                     <div className="left-mid-container">
@@ -124,10 +128,10 @@ const NewPost = () => {
                             onChange={ (e) => setCaption(e.target.value) }
                             className="new-post-caption"
                             placeholder="Write a caption..."
-                            maxLength="2200"
+                            maxLength="200"
                         />
+                        <div className="character-count">{ caption?.length } / 200</div>
                         <div></div>
-                        <div className="character-count">{ caption?.length } / 2,200</div>
 
                     </div>
                     { url.length ? (

@@ -1,7 +1,8 @@
 import { useDispatch } from "react-redux";
 import { deleteComment } from "../../store/post";
 import { OpenModal } from "../../context/OpenModal";
-
+import './Comments.css'
+import '../Menu/Menu.css'
 
 const CommentMenu = ({ comment }) => {
     const dispatch = useDispatch();

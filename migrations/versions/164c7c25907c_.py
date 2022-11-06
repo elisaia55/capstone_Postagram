@@ -50,7 +50,7 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('userId', sa.Integer(), nullable=False),
     sa.Column('media_url', sa.String(), nullable=False),
-    sa.Column('description', sa.String(length=2200), nullable=True),
+    sa.Column('description', sa.String(length=200), nullable=True),
     sa.Column('createdAt', sa.DateTime(), nullable=False),
     sa.ForeignKeyConstraint(['userId'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
@@ -59,7 +59,7 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('userId', sa.Integer(), nullable=False),
     sa.Column('postId', sa.Integer(), nullable=False),
-    sa.Column('description', sa.String(length=2200), nullable=False),
+    sa.Column('description', sa.String(length=200), nullable=False),
     sa.Column('createdAt', sa.DateTime(), nullable=False),
     sa.ForeignKeyConstraint(['postId'], ['posts.id'], ),
     sa.ForeignKeyConstraint(['userId'], ['users.id'], ),

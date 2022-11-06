@@ -7,7 +7,7 @@ class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     userId = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     media_url = db.Column(db.String(), nullable=False)
-    description = db.Column(db.String(2200), nullable=True)
+    description = db.Column(db.String(200), nullable=True)
     createdAt = db.Column(db.DateTime, nullable=False)
 
     user = db.relationship("User", back_populates='post')

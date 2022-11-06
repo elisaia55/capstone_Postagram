@@ -21,18 +21,30 @@ const getDetails = (posts) => ({
 })
 
 export const likePost = (postId) => async (dispatch) => {
-    const res = await fetch(`/api/likes/${postId}`,
+    const res = await fetch(`/api/posts/likes/${postId}`,
     {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
         },
     });
+    
     const data = await res.json();
+    console.log(data, "LIKE POST ++++++++++++++++")  
    
     dispatch(getFollowingPosts(data));
 }
 
+export const deleteLike = (id) => async (dispatch) => {
+    const res = await fetch(`/api/posts/likes/${id}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+        },
+    });
+    const data = await res.json();
+    dispatch(getFollowingPosts(data))
+}
 
 export const findPosts = (userId) => async (dispatch) => {
     try {
@@ -48,7 +60,8 @@ export const findPosts = (userId) => async (dispatch) => {
             if (data.errors) {
                 return data.errors;
             }
-        } else {
+        }
+         else {
             return ["Something went wrong"]
         }
 
@@ -92,6 +105,8 @@ export const deletePost = (id) => async (dispatch) => {
     dispatch(getFollowingPosts(data));
 }
 
+
+
 export const deleteComment = (id) => async (dispatch) => {
     const res = await fetch(`/api/comments/${id}`, {
         method: "DELETE",
@@ -107,7 +122,7 @@ export const postComment = (obj) => async (dispatch) => {
     const res = await fetch(`/api/comments`, {
         method: "POST",
         headers: {
-            "Content-Type": "Application/json",
+            "Content-Type": "application/json",
         },
         body: JSON.stringify(obj)
     });
@@ -127,7 +142,8 @@ export const newPost = (obj) => async (dispatch) => {
         method: "POST",
         body: form,
     });
-
+    const data = await res.json();
+    dispatch(getFollowingPosts(data))
 };
 
 

@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from "react";
 import React, { Component } from "react";
 import { useDispatch, useSelector } from "react-redux";
 // import { findFollowers, followUser } from "../../store/follow";
-import { findPosts, getPostFollowing, postComment, likePost } from "../../store/post";
+import { findPosts, getPostFollowing, postComment, likePost, deleteLike } from "../../store/post";
 import { useHistory } from "react-router-dom";
 import Picker from "emoji-picker-react"
 import MenuModal from "../Menu/MenuModal";
@@ -30,6 +30,8 @@ const Home = () => {
     const [unfollowed, setUnfollowed] = useState();
     const user = useSelector((state) => state.session.user);
     const followingPosts = useSelector((state) => state.post.following);
+    const [isClicked, setIsClicked] = useState(false)
+    
     // const suggestions = useSelector((state) => state.follow.users);
     // const following = useSelector((state) => state.follow[user?.id]?.following);
     const [inputs, setInputs] = useState(
@@ -51,14 +53,14 @@ const Home = () => {
     };
 
 
-    useEffect(() => {
-        async function fetchData() {
-          const response = await fetch('/api/users/');
-          const responseData = await response.json();
-          setUsers(responseData.users);
-        }
-        fetchData();
-      }, []);
+    // useEffect(() => {
+    //     async function fetchData() {
+    //       const response = await fetch('/api/users/');
+    //       const responseData = await response.json();
+    //       setUsers(responseData.users);
+    //     }
+    //     fetchData();
+    //   }, [dispatch]);
 
     useEffect(() => {
         updateInput(currInput);
@@ -72,7 +74,7 @@ const Home = () => {
     }, [])
 
     useEffect(() => {
-        dispatch(getPostFollowing());
+        dispatch(getPostFollowing(user));
     }, [user]);
 
     useEffect(() => {
@@ -153,7 +155,16 @@ const Home = () => {
 
     // addLike??
     const addLike = (id) => {
-        dispatch(likePost(id))
+        dispatch(likePost(id)).then(() => dispatch(getPostFollowing(user?.id)));
+    }
+
+    const likeHandleClick = (id) => {
+        if (isClicked) {
+            dispatch(likePost(id))
+        } else {
+            return null
+        }
+        setIsClicked(!isClicked)
     }
 
     // const follow = (id) => {
@@ -212,12 +223,12 @@ const Home = () => {
                                         src={ src }
                                     />
                                     <div className="post-icons">
-                                        { post.likes.find((p) => p.id === user.id) !== undefined ? (
+                                        { post?.likes?.length > 0 && post?.likes?.find((p) => p.id === user.id) !== undefined ? (
                                             <div
                                                 className="post-icon"
-                                                onClick={ () => addLike(post.post.id) }
+                                                onClick={ likeHandleClick }
                                             >
-                                                { icon2 }
+                                                { icon2 } 
                                             </div>
                                         ) : (
                                             <div

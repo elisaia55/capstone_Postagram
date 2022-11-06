@@ -12,31 +12,44 @@
 .menu-btns {
     display: flex;
     justify-content: center;
-    margin-left: 30px;
-    margin-top: 8px;
+    margin-left: 50px;
+    
     width: fit-content;
 }
 
 .menu-btns:hover {
     background-color: rgba(229, 229, 229, 0.72);
+    cursor: pointer;
+    font-size: 15px;
+    text-decoration: underline;
 }
 
 .menu-btns2 {
     display: flex;
     justify-content: center;
     margin-left: 21px;
+    
 
 }
 
 .hide-menu {
-    width: 750px;
+    width: 450px;
     position: relative;
-    left: 190px;
-    bottom: 15px;
+    
+    
 }
 
 .menu-btns5 {
-    margin-left: 20px;
+    position: relative;
+    left: 23px;
+    bottom: 14px;
+}
+
+.menu-btns5:hover {
+    font-size: 15px;
+    cursor: pointer;
+    text-decoration: underline;
+
 }
 
 .del-btn {
@@ -47,18 +60,22 @@
 
 .delete-post,
 .unfollow-post {
-    width: 92%;
+    display: flex;
+    justify-content: center;
+    width: 100%;
     text-align: center;
     color: #ed4956;
     padding: 16px 16px;
     height: 30px;
     font-weight: 700;
-    cursor: pointer;
+    position: relative;
     
 }
 
 .edit-post {
-    width: 92%;
+    display: flex;
+    justify-content: center;
+    width: 100%;
     text-align: center;
     padding: 16px 16px;
     height: 30px;
@@ -67,25 +84,39 @@
 }
 
 .goto-post-b {
-    width: 92%;
+    width: 100%;
     text-align: center;
     padding: 16px 16px;
     height: 30px;
-    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    
     
 }
 
 .goto-post {
-    width: 92%;
+    display: flex;
+    justify-content: center;
+    width: 100%;
     text-align: center;
     padding: 16px 16px;
     height: 25px;
-    cursor: pointer;
     position: relative;
     bottom: 5px;
-    left: 0px;
+    
+    
     /* margin-left: 10px; */
 }
+
+
+.goto-post2 {
+   
+    display: flex;
+    align-items: center;
+    position: relative;
+    
+}
+
 
 
 
@@ -95,7 +126,6 @@
     text-align: center;
     padding: 16px 16px;
     height: 96px;
-    cursor: pointer;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -108,6 +138,8 @@
     color: #262626;
     font-size: 18px;
     font-weight: 500;
+    position: relative;
+    top: 15px;
 }
 
 .del-desc {
@@ -172,4 +204,25 @@
     position: relative;
     bottom: 7px;
     left: 23px;
+}
+
+.delete-conf {
+    width: 80%;
+}
+
+
+.menu-btns4 {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+    left: 23px;
+    bottom: 5px;
+}
+
+.menu-btns4:hover {
+
+    font-size: 14.5px;
+    text-decoration: underline;
+    cursor: pointer;
 }

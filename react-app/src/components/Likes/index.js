@@ -44,6 +44,7 @@ const Likes = ({ users }) => {
                                     history.push(`/users/${user.id}`);
                                 } }
                             />
+                            
                             <div className="likes-details">
                                 <div
                                     className="likes-username"
@@ -56,15 +57,15 @@ const Likes = ({ users }) => {
                                 </div>
                                 <div className="likes-name">{ user.name }</div>
                             </div>
-                            { user.id !== main.id ? (
+                            {/*  { user.id !== main.id ? (
                                 following.find((f) => f.id === user.id) === undefined ? (
                                     <>
-                                        {/* <button
+                                       <button
                                             className="likes-follow"
                                             onClick={ () => follow(user.id) }
                                         >
                                             Follow
-                                        </button> */}
+                                        </button> 
                                     </>
                                 ) : (
                                     <>
@@ -85,7 +86,7 @@ const Likes = ({ users }) => {
                                         ) }
                                     </>
                                 )
-                            ) : null }
+                            ) : null }*/}
                         </div>
                     )) }
             </div>

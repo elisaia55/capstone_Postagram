@@ -56,7 +56,7 @@ const Menu = ({ post }) => {
 
     const destroy = () => {
         dispatch(deletePost(post.post.id))
-        
+        setPostId(0);
     };
 
     const edit = () => {
@@ -87,14 +87,14 @@ const Menu = ({ post }) => {
             <div className="hide-menu">
                 { user?.id === post?.user.id ? (
                     <>
-                        <div onClick={ bye } className="delete-post">
-                            <span className="menu-btns">
+                        <div  className="delete-post">
+                            <span className="menu-btns" onClick={ bye }>
 
                                 Delete post
                             </span>
                         </div>
-                        <div className="edit-post" onClick={ edit }>
-                            <span className="menu-btns">Edit caption</span>
+                        <div className="edit-post" >
+                            <span onClick={ edit }className="menu-btns">Edit caption</span>
                         </div>
                     </>
                 ) : (
@@ -103,16 +103,16 @@ const Menu = ({ post }) => {
                     </>
                 ) }
                 <div
-                    onClick={ () => {
-                        history.push(`/posts/${post.post.id}`);
-                        setPostId(0);
-                    } }
+                    
                     className="goto-post-b"
                 >
-                    
+                    <span className="menu-btns" onClick={ () => {
+                        history.push(`/posts/${post.post.id}`);
+                        setPostId(0);
+                    } }>Go to Post</span>
                 </div>
-                <div className="goto-post" onClick={ () => setPostId(0) }>
-                    <span className="menu-btns">Cancel</span>
+                <div className="goto-post" >
+                    <span className="menu-btns" onClick={ () => setPostId(0) }>Cancel</span>
                 </div>
             </div>
             <div className="delete-conf hidden">
@@ -120,11 +120,11 @@ const Menu = ({ post }) => {
                     <p className="del-title">Delete Post?</p>
                     <p className="del-desc">Are you sure you want to delete this post?</p>
                 </div>
-                <div className="delete-post" onClick={ destroy }>
-                    <span className="menu-btns5">Delete</span>
+                <div className="delete-post" >
+                    <span className="menu-btns5" onClick={ destroy }>Delete</span>
                 </div>
-                <div className="goto-post" onClick={ () => setPostId(0) }>
-                    <span className="menu-btns4">Cancel</span>
+                <div className="goto-post2" >
+                    <span className="menu-btns4" onClick={ () => setPostId(0) }>Cancel</span>
                 </div>
             </div>
             <div className="edit-it hidden">
@@ -157,7 +157,7 @@ const Menu = ({ post }) => {
                 <div className="submit-edit" onClick={ submitEdit }>
                     <span className="menu-btns2">Submit</span>
                 </div>
-                <div className="goto-post" onClick={ () => setPostId(0) }>
+                <div className="goto-post3" onClick={ () => setPostId(0) }>
                     Cancel
                 </div>
             </div>

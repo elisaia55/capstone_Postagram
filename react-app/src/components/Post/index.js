@@ -29,7 +29,7 @@ const Post = () => {
     const user = useSelector((state) => state.session.user);
     const userPosts = useSelector((state) => state.post[post?.user?.id]?.posts);
     const following = useSelector((state) => state.follow[user?.id]?.following)
-    const followingFeed = useSelector((state) => state.post.following);
+    const followingFeed = useSelector((state) => state.post?.following);
 
 
     const [hidden, setHidden] = useState(new Array(post?.comments?.length).fill(false))
@@ -72,9 +72,9 @@ const Post = () => {
     //     dispatch(followUser(post?.user.id)).then(() => dispatch(getPostFollowing(user?.id)))
     // };
 
-    // const addLike = (id) => {
-    //     dispatch(likePost(id)).then(() => dispatch(getPostFollowing(user?.id)));
-    // };
+    const addLike = (id) => {
+        dispatch(likePost(id)).then(() => dispatch(getPostFollowing(user?.id)));
+    };
 
     // heart animation gif?? for likes const addLikeAnimation () => {}
 
@@ -272,10 +272,10 @@ const Post = () => {
                             { post?.likes?.length > 0 &&
                                 post?.likes?.find((p) => p.id === user.id) !== undefined ? (
                                 <div className="post-icon">
-                                    { icon2 }
+                                    { icon2 } 
                                 </div>
                             ) : (
-                                <div className="post-icon">
+                                <div className="post-icon" onClick={ () => addLike(post.post.id) }>
                                     { icon1 }
                                 </div>
                             ) }
@@ -312,7 +312,7 @@ const Post = () => {
                         ) : (
                             <div className="pp-nolikes">
                                 Be the first to{ " " }
-                                <span className="pp-like-me">
+                                <span className="pp-like-me" onClick={ () => addLike(post.post.id) }>
                                     like this
                                 </span>
                             </div>
