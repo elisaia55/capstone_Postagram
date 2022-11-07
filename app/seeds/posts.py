@@ -17,6 +17,9 @@ def seed_posts():
                  description='Catching waves with my guy Zac Efron', createdAt=datetime.now())
     post8 = Post(userId=6, media_url='https://static.clubs.nfl.com/image/private/t_editorial_landscape_12_desktop/49ers/vz6bn8iatxawximljz8e',
                  description='Blessed to be back in the Bay!', createdAt=datetime.now())
+    post9 = Post(userId=7, media_url='https://wallpaper.dog/large/10879393.jpg',
+                 description='JUST DO IT', createdAt=datetime.now())
+
     
     db.session.add(post2)
     db.session.add(post3)
@@ -25,6 +28,7 @@ def seed_posts():
     db.session.add(post6)
     db.session.add(post7)
     db.session.add(post8)
+    db.session.add(post9)
 
     db.session.commit()
 

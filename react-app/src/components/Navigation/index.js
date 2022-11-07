@@ -6,18 +6,13 @@ import { useSelector, useDispatch } from "react-redux";
 import { OpenModal } from "../../context/OpenModal";
 import NewPostModal from "../PostModal/PostModal";
 import ProfileDropDown from "./ProfileDropDown";
-
 import HomeFilled from '../../images/HomeSEL.png'
 import HomeEmpty from '../../images/HomeUN.png'
-
 import MsgEmpty from '../../images/msgEmptynew.png'
 import MsgFilled from "../../images/msgFillednew.png";
-
 import ExploreFilled from '../../images/DiscoverSEL.png'
 import ExploreEmpty from '../../images/DiscoverUN.png'
 import SearchBar from "../Searchbar";
-
-
 import NotifFilled from '../../images/NotifsSEL.png'
 import NotifEmpty from '../../images/NotifsUN.png'
 import './Navigation.css'
@@ -53,7 +48,7 @@ const Navigation = () => {
                 </a>
                 
                 <div className="search-container">
-                    <SearchBar />
+                    
                     <div className="right-nav">
                         { path === "/" && num !== 1 ? (
                             <div onClick={ () => history.push("/") } className="nav-btns">

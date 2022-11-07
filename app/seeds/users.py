@@ -15,6 +15,10 @@ def seed_users():
         username='The Rock', email='Rock@gmail.com', password='therock', image_url='https://m.media-amazon.com/images/M/MV5BMTkyNDQ3NzAxM15BMl5BanBnXkFtZTgwODIwMTQ0NTE@._V1_UY1200_CR84,0,630,1200_AL_.jpg', description="CAN YOU SMELL WHAT THE ROCK IS COOKINNN?", name="Dwayne 'The Rock' Johnson")
     Christian = User(
         username='christianmcCaffrey', email='CMC@gmail.com', password='CMCCc', image_url='https://static.clubs.nfl.com/image/private/t_editorial_landscape_12_desktop/49ers/ymo4ym7sww3pp6nvt20q', description="San Francisco 49ers Runing Back", name="Christian McCaffrey")
+    Nike = User(
+        username='nike', email='Nike@gmail.com', password='Nikee', image_url='https://c.static-nike.com/a/images/w_1920,c_limit/bzl2wmsfh7kgdkufrrjq/image.jpg', description="Spotlighting athlete* and 👟 stories", name="Nike")
+    Asus = User(
+        username='asus', email='asus@gmail.com', password='asuss', image_url='https://dlcdnwebimgs.asus.com/gain/85C456D5-2EB3-41E5-AF5F-3F0087C12595', description="Stay updated with the latest news on #ASUS laptops, desktops, smartphones, components, and accessories.", name="ASUS")
 
 
 
@@ -24,6 +28,8 @@ def seed_users():
     db.session.add(AD)
     db.session.add(Rock)
     db.session.add(Christian)
+    db.session.add(Nike)
+    db.session.add(Asus)
     db.session.commit()
 
 
