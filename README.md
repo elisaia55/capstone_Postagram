@@ -5,6 +5,26 @@ Postagram is a clone made from Instagram. Able to socialize and communicate with
 Start Posting today:
 [Postagram](https://post-agram.herokuapp.com/)
 
+## Login Page 
+![Screenshot 2022-11-06 at 2 28 38 AM](https://user-images.githubusercontent.com/99278056/200329396-53702178-c09e-4b87-b86e-61a6c9547e60.png)
+
+## Signup Page 
+![Screenshot 2022-11-07 at 5 59 19 AM](https://user-images.githubusercontent.com/99278056/200329586-2e7ab1f5-37f3-4a0c-b08f-6bb3104a20a2.png)
+
+## Splash/Home Page 
+![Screenshot 2022-11-07 at 5 59 45 AM](https://user-images.githubusercontent.com/99278056/200329672-12a3b7d9-fc90-4af8-af74-0b40777242d5.png)
+
+## Single Post 
+![Screenshot 2022-11-07 at 6 02 12 AM](https://user-images.githubusercontent.com/99278056/200329789-bfce93ca-b6e2-41d3-ab6b-e7a825948668.png)
+
+## User Profile Page 
+![Screenshot 2022-11-07 at 6 01 31 AM](https://user-images.githubusercontent.com/99278056/200329867-ff32ac6f-8f95-4b22-b5a6-db927258ee8c.png)
+
+
+
+ 
+
+
 ## Technologies Used: 
 ![image](https://user-images.githubusercontent.com/99278056/172105182-5998e8b9-bf5b-4d08-87aa-535d925e664b.png)
 ![image](https://user-images.githubusercontent.com/99278056/172105199-c01f2585-80bc-497c-8911-ab4f7769eda3.png)
@@ -26,3 +46,18 @@ Start Posting today:
 ![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)
 ![Ubuntu](https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white)
 ![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?style=for-the-badge&logo=Instagram&logoColor=white)
+
+
+
+How to use Postagram Locally 
+
+- Clone this repository: https://github.com/elisaia55/capstone_Postagram
+- Create a user in the database
+- Create a database with your user as its owner
+- Run pipenv install in the project root directory
+- Add a .env file to the root directory following the .env example file format
+- cd into the react-app directory and run npm install to install needed packages to run the application 
+- create a .env file in this folder to create your environment variables.
+- run pipenv shell in the root directory
+- run flask db migrate, flask db upgrade, and flask seed all to connect to your database 
+- cd into the react-app folder and run npm start to start your frontend server 
