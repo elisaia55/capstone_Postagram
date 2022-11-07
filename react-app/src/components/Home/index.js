@@ -454,7 +454,7 @@ const Home = () => {
                                     ) }
                                     <a className="trademark"href="/about-us">
 
-                                    <div className="creator-text">Postagram™ by Augustino Elisaia</div>
+                                    <div className="creator-text">© 2022 POSTAGRAM BY AUGUSTINO ELISAIA</div>
                                     </a>
                                 </div>
                             </div>

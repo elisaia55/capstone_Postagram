@@ -156,7 +156,7 @@
 }
 
 .submit-edit2 {
-    width: 92%;
+    
     text-align: center;
     color: #0095f6;
     padding: 16px 16px;
@@ -330,13 +330,13 @@
     padding: 16px 16px;
     height: 25px;
     font-weight: 700;
-    cursor: pointer;
+    
     
 
 }
 
 .submit-edit:hover {
-    cursor: pointer;
+   
     font-size: 17px;
 }
 

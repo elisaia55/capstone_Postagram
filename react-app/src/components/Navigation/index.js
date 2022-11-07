@@ -15,7 +15,7 @@ import MsgFilled from "../../images/msgFillednew.png";
 
 import ExploreFilled from '../../images/DiscoverSEL.png'
 import ExploreEmpty from '../../images/DiscoverUN.png'
-
+import SearchBar from "../Searchbar";
 
 
 import NotifFilled from '../../images/NotifsSEL.png'
@@ -53,11 +53,7 @@ const Navigation = () => {
                 </a>
                 
                 <div className="search-container">
-                    {/* <input
-                        className="search-bar"
-                        placeholder="Search for Users"
-                    >
-                    </input> */}
+                    <SearchBar />
                     <div className="right-nav">
                         { path === "/" && num !== 1 ? (
                             <div onClick={ () => history.push("/") } className="nav-btns">

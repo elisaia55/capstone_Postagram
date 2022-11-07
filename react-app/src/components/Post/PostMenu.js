@@ -144,7 +144,7 @@ let editPostErr = []
                 </div>
                 <div className="submit-cancel-container">
 
-                <div className="submit-edit" >
+                <div className="submit-edit2" >
                     <span className="menu-btns2-edit" onClick={ handleEditSubmit }>Submit</span>
                 </div>
                 <div className="goto-post-cancel-container" >
