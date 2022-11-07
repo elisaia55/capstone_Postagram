@@ -425,7 +425,7 @@ const Home = () => {
                                 
                                 <div className="suggestions-list">
                                     {  usersSuggested?.length > 0 ? (
-                                        usersSuggested?.slice(1, 5).map((s, i) => (
+                                        usersSuggested?.slice(1, 6).map((s, i) => (
                                             <>
                                                
                                                 <div key={ s + i } className="suggestion-card">
