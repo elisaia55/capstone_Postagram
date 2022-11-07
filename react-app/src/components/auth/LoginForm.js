@@ -71,7 +71,7 @@ const LoginForm = () => {
           name='email'
           type='email'
           placeholder='Email'
-          value={email}
+          value={email || ''}
           onChange={updateEmail}
           required
           />
@@ -82,7 +82,7 @@ const LoginForm = () => {
           name='password'
           type='password'
           placeholder='Password'
-          value={password}
+          value={password || ''}
           onChange={updatePassword}
           required
           />
@@ -101,6 +101,7 @@ const LoginForm = () => {
         </div >
         <button className='login-demo-button2' onClick={demoUser2}
           >Log in as Demo User</button>
+        <a className="login-aboutus-button"href='/about-us'>About Us</a>
       </div>
           
     </form>

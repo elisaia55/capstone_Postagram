@@ -9,9 +9,14 @@
     color: rgb(0, 0, 0);
 }
 
-#user-img{
+#user-img {
     height: 150px;
     width: 150px;
+    object-fit: cover;
+    position: relative;
+    right: 170px;
+    bottom: 50px;
+    
 }
 .user-profile-img{
     top: 85px;
@@ -20,10 +25,13 @@
     height: 150px;
     border-radius: 50%;
     align-items: center;
+    object-fit: cover;
 }
 
 #user-profile-username {
     font-weight:300;
+    position: relative;
+    bottom: 20px;
 }
 
 #user-description{
@@ -34,6 +42,8 @@
     display: flex;
     align-content: center;
     gap: 25px;
+    position: relative;
+    bottom: 20px;
 }
 
 .user-profile-count {
@@ -48,13 +58,16 @@
     width: max-content;
     justify-content: center;
     align-items: center;
+    position: relative;
+    left: 200px;
+    
 }
 
 .user-profile-description{
     position: relative;
     flex-direction: column;
     flex-wrap: wrap;
-    left: 156px;
+    left: 355px;
     bottom: 23px;
     
     
@@ -104,10 +117,10 @@
 
 .inner-top-profile {
     display: flex;
-    
     flex-direction: column;
     align-content:center;
-    
+    position: relative;
+    left: 350px;
     
 }
 
@@ -126,8 +139,45 @@
     object-fit: cover;
 }
 
-.user-img-container {
+.photo-gallery-container {
      display: grid;
-        grid-template-columns: repeat(3, minmax(100px, 293px));
+        grid-template-columns: repeat(3, minmax(290px, 293px));
         grid-gap: 28px;
+        position: relative;
+        top: 330px;
+        right: 590px;
 }
+
+.line-break {
+    position: relative;
+    top: 30px;
+    height: 20px;
+    border-top: .5px rgba(215, 215, 215, 0.703) solid;
+    width: 940px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.posts-mid-border {
+    margin-left: 6px;
+    font-size: 14px;
+    letter-spacing: 1.5px;
+    font-weight: bold;
+}
+
+.brighten img {
+  
+    -webkit-filter: brightness(100%);
+    }
+    
+    .brighten img:hover {
+        -webkit-filter: brightness(50%);
+        -webkit-transition: all 1s ease;
+        -moz-transition: all 1s ease;
+        -o-transition: all 1s ease;
+        -ms-transition: all 1s ease;
+        transition: all 1s ease;
+    
+    }

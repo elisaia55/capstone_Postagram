@@ -1,0 +1,32 @@
+#user-description2 {
+    width: 600px;
+}
+
+.return-button {
+    width: 268px;
+    height: 32px;
+    background-color: #0095f6;
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    
+    
+
+}
+
+.return-button-atag {
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    right: 60px;
+    bottom: 180px;
+}

@@ -1,6 +1,10 @@
-from flask import Blueprint, jsonify
-from flask_login import login_required
+from flask import Blueprint, jsonify, request 
+from flask_login import login_required, current_user
 from app.models import User, db
+
+from app.aws_s3 import *
+import boto3
+import botocore
 
 user_routes = Blueprint('users', __name__)
 
@@ -22,4 +26,15 @@ def getUsers():
     return {'allUsers': [user.to_dict() for user in allUsers]}
 
 
+@user_routes.route('/<int:userId>')
+@login_required
+def get_single_user(userId):
+    user = User.query.filter(User.id == userId).first()
+    
+    if user is None:
+        return {"errors": "User could not be found"}, 400
+    else:
+        return user.to_dict()
 
+
+    

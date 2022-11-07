@@ -380,6 +380,27 @@ text-align: center;
   left: 39px;
 }
 
+.login-aboutus-button {
+  width: 268px;
+  height: 32px;
+  background-color: transparent;
+  color: #0046f6;
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 5px 9px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+  position: relative;
+  left: 39px;
+  bottom: 15px;
+}
+
 .social-logos2 {
   position: relative;
   width: 140px;

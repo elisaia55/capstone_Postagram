@@ -121,7 +121,7 @@
 }
 
 .post-likes {
-    cursor: pointer;
+    
     font-size: 14px;
     font-weight: 500;
     margin: 0px 4px 10px 16px;
@@ -459,4 +459,24 @@
     margin-top: 10px;
     font-size: 11px;
     width: max-content;
+}
+
+.creator-text {
+    font-size: 11px;
+    color: #8e8e8e;
+    font-weight: 400;
+    position: relative;
+    top: 10px;
+    left: 4px;
+
+}
+
+.creator-text:hover {
+    background: -webkit-linear-gradient(#eee, #333);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.trademark {
+        text-decoration: none;
 }

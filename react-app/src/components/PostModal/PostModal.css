@@ -166,7 +166,8 @@ flex-direction: column;
 .character-count {
     width: 24.5vw;
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
     color: rgb(199, 199, 199);
-    
+    position: relative;
+    left: 12px;
 }

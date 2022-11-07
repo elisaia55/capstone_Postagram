@@ -1,7 +1,7 @@
 export const MsgEmpty = (
     <svg
         aria-label="Messenger"
-        class="_8-yf5 "
+        className="_8-yf5 "
         color="#262626"
         fill="#262626"
         height="24"
@@ -14,7 +14,7 @@ export const MsgEmpty = (
             fill="none"
             stroke="currentColor"
             stroke-miterlimit="10"
-            stroke-width="1.739"
+            strokeWidth="1.739"
         ></path>
         <path
             d="M17.79 10.132a.659.659 0 00-.962-.873l-2.556 2.05a.63.63 0 01-.758.002L11.06 9.47a1.576 1.576 0 00-2.277.42l-2.567 3.98a.659.659 0 00.961.875l2.556-2.049a.63.63 0 01.759-.002l2.452 1.84a1.576 1.576 0 002.278-.42z"
@@ -26,7 +26,7 @@ export const MsgEmpty = (
 export const MsgFilled = (
     <svg
         aria-label="Messenger"
-        class="_8-yf5 "
+        className="_8-yf5 "
         color="#262626"
         fill="#262626"
         height="24"

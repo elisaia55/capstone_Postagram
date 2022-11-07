@@ -15,7 +15,7 @@ const PostMenu = ({ post }) => {
     const [open, setOpen] = useState(0);
     const emoji = useRef(null)
     const user = useSelector((state) => state.session.user)
-
+    const [errors, setErrors] = useState([])
     const [input, setInput] = useState(post.post.description);
 
     const onEmojiClick = (event, emojiObject) => {
@@ -74,11 +74,15 @@ const PostMenu = ({ post }) => {
         }
     };
 
-
+let editPostErr = []
     const handleEditSubmit = () => {
         const obj = {
             description: input,
         };
+        if (obj.length > 200) {
+            editPostErr.push("Caption cannot be longer than 200 characters")
+            return setErrors(editPostErr)
+        }
 
         dispatch(editPost(obj, post.post.id));
         setPostId(0);
@@ -87,13 +91,13 @@ const PostMenu = ({ post }) => {
     return (
         <div className="options-modal">
             <div className="hide-options">
-                <div onClick={ gone } className="delete-post">
+                <div onClick={ gone } className="delete-post-single">
                     Delete Post
                 </div>
-                <div className="edit-post" onClick={ edit }>
+                <div className="edit-post-single" onClick={ edit }>
                     Edit Caption
                 </div>
-                <div className="goto-post" onClick={ () => setPostId(0) }>
+                <div className="goto-post-single" onClick={ () => setPostId(0) }>
                     Cancel
                 </div>
             </div>
@@ -134,13 +138,19 @@ const PostMenu = ({ post }) => {
                         value={ input }
                         onChange={ (e) => setInput(e.target.value) }
                         className="edit-it-input"
+                        maxLength="200"
+                    
                     />
                 </div>
-                <div className="submit-edit" onClick={ handleEditSubmit }>
-                    <span className="menu-btns2">Submit</span>
+                <div className="submit-cancel-container">
+
+                <div className="submit-edit" >
+                    <span className="menu-btns2-edit" onClick={ handleEditSubmit }>Submit</span>
                 </div>
-                <div className="goto-post" onClick={ () => setPostId(0) }>
-                    Cancel
+                <div className="goto-post-cancel-container" >
+                    <span className="single-post-cancel"onClick={ () => setPostId(0) }>Cancel</span>
+                </div>
+                { errors && errors.map((err) => <div className="new-post-err">{ err }</div>) }
                 </div>
             </div>
         </div>

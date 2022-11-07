@@ -12,6 +12,8 @@ import Navigation from './components/Navigation';
 import NewPost from './components/PostModal/NewPost';
 import Post from './components/Post';
 import Home from './components/Home';
+import About from './components/About';
+
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -53,6 +55,10 @@ function App() {
           <Navigation />
           <Home />
         </ProtectedRoute>
+        <Route path='/about-us' exact={true}>
+          
+          <About />
+        </Route>
       </Switch>
     </BrowserRouter>
   );

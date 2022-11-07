@@ -25,7 +25,7 @@ const CommentMenu = ({ comment }) => {
                 <span className="del-btn">Delete</span>
             </div>
             <div className="goto-post" onClick={ () => setCommentId(0) }>
-                Cancel
+                <span className="cancel-button-comment">Cancel</span>
             </div>
         </div>
     );

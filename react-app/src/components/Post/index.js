@@ -77,12 +77,17 @@ const Post = () => {
     };
 
     // heart animation gif?? for likes const addLikeAnimation () => {}
-
-
     const showEmoji = () => {
-        
-            dispatch(getPostFollowing(user?.id));
+        if (counter === 0) {
+            emoji.current.classList.remove("hidden");
+            setCounter(1);
+        }
+        else {
+            setCounter(0);
+        }
     }
+
+ 
 
     const newComment = (postId) => {
         if (input.length < 1) {
@@ -216,6 +221,7 @@ const Post = () => {
                                                             .split("\n")
                                                             .map((sentence) => (
                                                                 <>
+                                                                
                                                                     { sentence }
                                                                     <br />
                                                                 </>
@@ -343,7 +349,7 @@ const Post = () => {
                             <input
                                 className="pp-input"
                                 onKeyUp={ (e) => e.key === "Enter" && newComment(post?.post?.id) }
-                                value={ input }
+                                value={ input || '' }
                                 onChange={ (e) => setInput(e.target.value) }
                                 placeholder="Add a comment..."
                                 onFocus={ () => setFocus(true) }

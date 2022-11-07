@@ -14,7 +14,8 @@ def user_exists(form, field):
     if user:
         raise ValidationError('Email address is already in use.')
     if not (re.fullmatch(email_check, email)):
-        raise ValidationError('Please provide a valid email ')
+        raise ValidationError('Please provide a valid email')
+    
 
 
 def username_nonspace(form, field):

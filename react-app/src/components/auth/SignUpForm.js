@@ -103,7 +103,7 @@ const SignUpForm = () => {
               type='text'
               name='email'
               onChange={ updateEmail }
-              value={ email }
+              value={ email || '' }
               required
               autoComplete="off"
               ></input>
@@ -115,7 +115,7 @@ const SignUpForm = () => {
               type='text'
               name='name'
               onChange={ updateName }
-              value={ name }
+              value={ name || '' }
               required
               autoComplete="off"
               ></input>
@@ -127,7 +127,7 @@ const SignUpForm = () => {
               type='text'
               name='username'
               onChange={ updateUsername }
-              value={ username }
+              value={ username || '' }
               required
               autoComplete="off"
               ></input>
@@ -140,7 +140,7 @@ const SignUpForm = () => {
             name="password"
             autoComplete="off"
             onChange={ updatePassword }
-            value={ password }
+            value={ password || '' }
             required
             ></input>
           <input
@@ -150,7 +150,7 @@ const SignUpForm = () => {
             type="password"
             name="repeat_password"
             onChange={ updateRepeatPassword }
-            value={ repeatPassword }
+            value={ repeatPassword || '' }
             required
             >
 
@@ -177,8 +177,8 @@ By signing up, you agree to our Terms , Privacy Policy and Cookies Policy .</p>
         </form>
         <div className='signup-errors'>
 
-          { errors.map((error, ind) => (
-            <div key={ ind }>{ error }</div>
+          { errors.map((error, ind2) => (
+            <div key={ ind2 }>{ error }</div>
             )) }
 
         </div>

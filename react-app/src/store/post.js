@@ -30,7 +30,7 @@ export const likePost = (postId) => async (dispatch) => {
     });
     
     const data = await res.json();
-    console.log(data, "LIKE POST ++++++++++++++++")  
+   
    
     dispatch(getFollowingPosts(data));
 }
@@ -52,7 +52,7 @@ export const findPosts = (userId) => async (dispatch) => {
         if (res.ok) {
             const data = await res.json();
             dispatch(getPosts(data));
-            console.log(data, "------------- FIND POSTS THUNK")
+            
             
             
         } else if (res.status < 500) {

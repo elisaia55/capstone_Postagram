@@ -1,5 +1,5 @@
 .menu-modal {
-    width: 400px;
+    width: 100%;
     background-color: white;
     border-radius: 12px;
     font-size: 14px;
@@ -27,13 +27,31 @@
 .menu-btns2 {
     display: flex;
     justify-content: center;
-    margin-left: 21px;
+    position: relative;
+    
     
 
 }
 
+.menu-btns2-edit {
+    position: relative;
+    bottom: 15px;
+}
+
+.menu-btns-submit {
+    position: relative;
+    bottom: 66px;
+}
+
+.menu-btns-submit:hover {
+    text-decoration: underline;
+    font-size: 16px;
+}
+
+
+
 .hide-menu {
-    width: 450px;
+    width: 100%;
     position: relative;
     
     
@@ -56,6 +74,31 @@
     display: flex;
     justify-content: center;
     margin-left: 16px;
+    position: relative;
+    right: 6px;
+}
+
+.delete-post2 {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+    color: #ed4956;
+    padding: 16px 16px;
+    height: 30px;
+    font-weight: 700;
+    position: relative;
+    border: 0.5px solid rgba(var(--b6a,219,219,219),1);
+    align-items: center;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+    align-items: center;
+    
+}
+
+.delete-post2:hover{
+    background-color: #f1f1f1c2;
+    cursor: pointer;
 }
 
 .delete-post,
@@ -69,7 +112,30 @@
     height: 30px;
     font-weight: 700;
     position: relative;
+    border-bottom: 0.5px solid rgba(var(--b6a,219,219,219),1);
+    border-top: 0.5px solid rgba(var(--b6a,219,219,219),1);
+    align-items: center;
     
+    
+}
+
+.delete-post3 {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+    color: #ed4956;
+    height: 30px;
+    font-weight: 700;
+    position: relative;
+    align-items: center;
+    right: 18px;
+    top: 6px;
+}
+
+.delete-post:hover {
+    background-color:rgba(229, 229, 229, 0.72);
+    cursor: pointer;
 }
 
 .edit-post {
@@ -80,7 +146,35 @@
     padding: 16px 16px;
     height: 30px;
     cursor: pointer;
+    border-bottom: 0.5px solid rgba(var(--b6a,219,219,219),1);
+    align-items: center;
     
+}
+
+.edit-post:hover {
+    background-color:rgba(229, 229, 229, 0.72);
+}
+
+.submit-edit2 {
+    width: 92%;
+    text-align: center;
+    color: #0095f6;
+    padding: 16px 16px;
+    height: 25px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+
+
+.goto-post3 {
+    position: relative;
+    bottom: 60px;
+    left: 184px;
+}
+
+.goto-post3:hover {
+    font-size: 15px;
 }
 
 .goto-post-b {
@@ -90,8 +184,16 @@
     height: 30px;
     display: flex;
     justify-content: center;
+    align-items: center;
+    border-bottom: 0.5px solid rgba(var(--b6a,219,219,219),1);
     
     
+    
+}
+
+.goto-post-b:hover {
+    background-color:rgba(229, 229, 229, 0.72);
+    cursor: pointer;
 }
 
 .goto-post {
@@ -103,9 +205,27 @@
     height: 25px;
     position: relative;
     bottom: 5px;
+    align-items: center;
     
     
     /* margin-left: 10px; */
+}
+
+.single-post-cancel {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    bottom: 6px;
+}
+
+.single-post-cancel:hover {
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.goto-post:hover {
+    cursor: pointer;
+    background-color:rgba(229, 229, 229, 0.72);
 }
 
 
@@ -117,12 +237,15 @@
     
 }
 
-
+.cancel-button-comment {
+    position: relative;
+    left: 2px;
+}
 
 
 
 .del-conf-top {
-    width: 368px;
+    width:100%;
     text-align: center;
     padding: 16px 16px;
     height: 96px;
@@ -147,11 +270,26 @@
 }
 
 .edit-it {
+    height: 100%;
+    width: 100%;
+    
+}
+
+.submit-cancel-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    flex-direction: column;
+    align-content: center;
+    position: relative;
+    bottom: 100px;
     
 }
 
 .edit-it-top {
-    width: 367px;
+    height: 100%;
+    width: 100%;
     display: flex;
     flex-direction: row;
     gap: 5px;
@@ -166,7 +304,7 @@
 
 .edit-it-input {
     resize: none;
-    height: 100px;
+    height: 90px;
     width: 365px;
     border: none;
     padding: 16px 16px;
@@ -175,6 +313,7 @@
 
 .edit-it-input {
     outline: none;
+
 }
 
 .emoji-btn.editb {
@@ -196,18 +335,64 @@
 
 }
 
+.submit-edit:hover {
+    cursor: pointer;
+    font-size: 17px;
+}
+
+.options-modal {
+    
+    width: 100%;
+    height:160px
+}
+
+.delete-post-single, .edit-post-single, .goto-post-single {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    border-top: 0.5px solid rgba(var(--b6a,219,219,219),1);
+    font-size: 14px;
+
+}
+
+.delete-post-single:hover {
+    cursor: pointer;
+    background-color:rgba(229, 229, 229, 0.72);
+}
+
+.delete-post-single {
+    font-size: 15.5px !important;
+    color: red;
+    font-weight: 700;
+    border-top-right-radius: 9px;
+    border-top-left-radius: 9px;
+}
+
+.goto-post-single:hover {
+    cursor: pointer;
+    background-color:rgba(229, 229, 229, 0.72);
+}
+
+.edit-post-single:hover {
+    cursor: pointer;
+    background-color:rgba(229, 229, 229, 0.72);
+}
+
 .hide-options{
     
     display: flex;
     flex-direction: column;
-    width: 750px;
+    width: 100%;
     position: relative;
-    bottom: 7px;
-    left: 23px;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
 }
 
 .delete-conf {
-    width: 80%;
+    width: 100%;
 }
 
 
@@ -216,7 +401,7 @@
     justify-content: center;
     width: 100%;
     position: relative;
-    left: 23px;
+    left: 4px;
     bottom: 5px;
 }
 

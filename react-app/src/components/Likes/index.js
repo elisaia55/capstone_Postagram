@@ -35,6 +35,7 @@ const Likes = ({ users }) => {
             <div className="likes-bot">
                 { users?.length > 0 &&
                     users?.map((user) => (
+                        
                         <div className="likes-card">
                             <img
                                 className="likes-img"
@@ -57,36 +58,7 @@ const Likes = ({ users }) => {
                                 </div>
                                 <div className="likes-name">{ user.name }</div>
                             </div>
-                            {/*  { user.id !== main.id ? (
-                                following.find((f) => f.id === user.id) === undefined ? (
-                                    <>
-                                       <button
-                                            className="likes-follow"
-                                            onClick={ () => follow(user.id) }
-                                        >
-                                            Follow
-                                        </button> 
-                                    </>
-                                ) : (
-                                    <>
-                                        <button
-                                            className="likes-unfollow"
-                                            onClick={ () => {
-                                                console.log(user);
-                                                setUnfollowed(user);
-                                                setUnfollow2(user.id);
-                                            } }
-                                        >
-                                            Following
-                                        </button>
-                                        { unfollow2 === user.id && (
-                                            <Modal onClose={ () => setUnfollow2(0) }>
-                                                <Unfollow user={ unfollowed } />
-                                            </Modal>
-                                        ) }
-                                    </>
-                                )
-                            ) : null }*/}
+                            
                         </div>
                     )) }
             </div>

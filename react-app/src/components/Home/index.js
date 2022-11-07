@@ -58,46 +58,46 @@ const Home = () => {
     // const userTest = (user) => {
     //     dispatch(getAllUsers())
     // }
-    useEffect(() => {
-        let ignore = false;
-        
-        if (!ignore)  dispatch(getAllUsers())
-        return () => { ignore = true; }
-        },[]);
-
+    
     // useEffect(() => {
-    //     dispatch(getAllUsers)
-    // }, [dispatch])
-
-    // useEffect(() => {
-    //     async function fetchData() {
-    //       const response = await fetch('/api/users/');
-    //       const responseData = await response.json();
-    //       setUsers(responseData.users);
-    //     }
-    //     fetchData();
-    //   }, [dispatch]);
-
-    useEffect(() => {
-        updateInput(currInput);
-
-    }, [count])
-
-    useEffect(() => {
-        document.title = "Postagram";
-        dispatch(findPosts(user?.id));
+        //     dispatch(getAllUsers)
+        // }, [dispatch])
         
-    }, [])
-
-    useEffect(() => {
-        dispatch(getPostFollowing(user));
-    }, [user]);
-
-    useEffect(() => {
-        setInputs(new Array(followingPosts?.length).fill(""));
-        setLoaded(new Array(followingPosts?.length).fill(false));
-    }, [followingPosts]);
-
+        // useEffect(() => {
+            //     async function fetchData() {
+                //       const response = await fetch('/api/users/');
+                //       const responseData = await response.json();
+                //       setUsers(responseData.users);
+                //     }
+                //     fetchData();
+                //   }, [dispatch]);
+                
+                useEffect(() => {
+                    updateInput(currInput);
+                    
+                }, [count])
+                
+                useEffect(() => {
+                    document.title = "Postagram";
+                    dispatch(findPosts(user?.id));
+                    
+                }, [])
+                
+                useEffect(() => {
+                    dispatch(getPostFollowing(user));
+                }, [user]);
+                
+                useEffect(() => {
+                    setInputs(new Array(followingPosts?.length).fill(""));
+                    setLoaded(new Array(followingPosts?.length).fill(false));
+                }, [followingPosts]);
+                
+                useEffect(() => {
+                    let ignore = false;
+                    
+                    if (!ignore)  dispatch(getAllUsers())
+                    return () => { ignore = true; }
+                    },[]);
     const HideOutside = (ref) => {
         useEffect(() => {
             const handleClick = (e) => {
@@ -265,7 +265,7 @@ const Home = () => {
                                         <>
                                             <div
                                                 className="post-likes"
-                                                onClick={ () => setLikes(post.post.id) }
+                                                
                                             >
                                                 { post.likes.length }{ " " }
                                                 { post.likes.length === 1 ? "like" : "likes" }
@@ -292,6 +292,7 @@ const Home = () => {
                                                         .slice(0, 1)
                                                         .map((sentence) => (
                                                             <>
+                                                            <div key={ sentence }></div>
                                                                 { sentence }{ " " }
                                                                 <span
                                                                     className="p-dots"
@@ -379,7 +380,7 @@ const Home = () => {
                                             placeholder="Add a comment..."
                                             className="post-comment-input"
                                             id="comment-inp"
-                                            value={ inputs[i] }
+                                            value={ inputs[i] || ''}
                                             onChange={ (e) => update(e, i) }
                                             maxLength="300"
                                         />
@@ -421,6 +422,7 @@ const Home = () => {
                             <div className="h-suggestions">
                                 <div className="suggestions-title">Suggestions For You</div>
                                 
+                                
                                 <div className="suggestions-list">
                                     {  usersSuggested?.length > 0 ? (
                                         usersSuggested?.slice(1, 5).map((s, i) => (
@@ -450,6 +452,10 @@ const Home = () => {
                                             No available suggestions
                                         </div>
                                     ) }
+                                    <a className="trademark"href="/about-us">
+
+                                    <div className="creator-text">Postagram™ by Augustino Elisaia</div>
+                                    </a>
                                 </div>
                             </div>
 

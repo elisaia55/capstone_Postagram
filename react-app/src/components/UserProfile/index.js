@@ -3,8 +3,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useParams} from 'react-router-dom';
 import { getPostFollowing } from '../../store/post';
 import { findPosts } from '../../store/post';
-
-
+import { singleUser } from '../../store/user';
+import { useHistory } from 'react-router-dom';
 import './UserProfile.css'
 
 
@@ -13,6 +13,7 @@ import './UserProfile.css'
 
 
 function UserProfile() {
+  const history = useHistory()
   const [user, setUser] = useState({});
   const { userId }  = useParams();
   const dispatch = useDispatch();
@@ -31,11 +32,15 @@ function UserProfile() {
   let randomNum2 = Math.abs(Math.floor(Math.random() * 999))
 
   const pictureStyling = {
-    height: "100px",
-    width: "100px",
+    height: "160px",
+    width: "160px",
     borderRadius: "50%"
 
   }
+
+  useEffect(() => {
+    dispatch(singleUser(userId))
+  }, [userId])
 
 
 
@@ -55,11 +60,10 @@ function UserProfile() {
         setFinishedloading(true)
       }
     })();
-    console.log( "WE HIT THE MOTHERLOAD")
-  }, [dispatch]);
+    
+  }, []);
   
  
-
   useEffect(() => {
     if (!userId) {
       return;
@@ -85,9 +89,11 @@ function UserProfile() {
        <img src={user.image_url} id="user-img" style={pictureStyling}></img>
 
         </div>
+       
+
        <div className='user-profile-info'>
         <h2 id='user-profile-username'>{user.username}</h2>
-        {userAuth.id === user.id && <button id='edit-profile-btn'>Edit Profile</button>}
+       
 
        </div>
       <div className='user-stats-container'>
@@ -109,18 +115,36 @@ function UserProfile() {
         <div className='user-profile-description'>
           <h3 id='h3-username'>{user.name}</h3>
           <p id='user-description'>{user.description}</p>
+        
       </div>
       <div className='user-img-container'>
 
+        </div>
+          <div className='line-break'>
+          <svg aria-label="" className="_ab6-" color="#262626" fill="#262626" height="12" role="img" viewBox="0 0 24 24" width="12"><rect fill="none" height="18" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" width="18" x="3" y="3"></rect><line fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" x1="9.015" x2="9.015" y1="3" y2="21"></line><line fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" x1="14.985" x2="14.985" y1="3" y2="21"></line><line fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" x1="21" x2="3" y1="9.015" y2="9.015"></line><line fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" x1="21" x2="3" y1="14.985" y2="14.985"></line></svg>
+          <span className='posts-mid-border'>Posts</span>
+          </div>
+        </div>
+        
+        
+       
+        <div className='photo-gallery-container'>
       {getUserPosts?.map((post,i) => (
+        
         <div key={post + i} className="user-posts-imgs">
           <div className='top-user'>
+            <a href={`/posts/${post.post.id}`}>
+            <div className='brighten'>
             <img className='profile-imgs' src={post.post.media_url}/>
+
+            </div>
+            </a>
           </div>
+   
 
         </div>
       ))}
-      </div>
+
         </div>
 
     <div>
